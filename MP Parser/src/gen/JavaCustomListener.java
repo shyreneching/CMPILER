@@ -1715,5 +1715,6 @@ public class JavaCustomListener implements JavaListener {
      *
      * <p>The default implementation does nothing.</p>
      */
-    @Override public void visitErrorNode(ErrorNode node) { }
+    @Override public void visitErrorNode(ErrorNode node) {
+    }
 }

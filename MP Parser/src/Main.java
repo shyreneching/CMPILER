@@ -1,3 +1,4 @@
+import gen.ErrorListener;
 import gen.JavaCustomListener;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CharStream;
@@ -16,22 +17,18 @@ public class Main {
             CharStream input = (CharStream) new ANTLRFileStream("input/test.txt");
             JavaLexer lexer = new JavaLexer(input);
             JavaParser parser = new JavaParser(new CommonTokenStream(lexer));
+            //lexer.removeErrorListeners();
+            //lexer.addErrorListener(ErrorListener.INSTANCE);
+            parser.removeErrorListeners();
+            parser.addErrorListener(ErrorListener.INSTANCE);
+
+//            parser.addErrorListener(new ErrorListener());
             parser.addParseListener(new JavaCustomListener());
             parser.compilationUnit();
+            System.out.println(ErrorListener.INSTANCE.toString());
         } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println(ex);
+            //Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
-//    public static void main(String[] args) throws IOException {
-//        CharStream input = (CharStream) new ANTLRFileStream("/input/test.txt");
-//        JavaLexer lexer = new JavaLexer(input);
-//        JavaParser parser = new JavaParser(new CommonTokenStream(lexer));
-//        parser.addParseListener(new JavaCustomListener());
-//        parser.enterClassDeclaration();
-//        System.out.println(parser);
-//        String name = parser.compilationUnit().getText();
-//        System.out.println(name);
-//    }
 }

@@ -1,5 +1,6 @@
 // Generated from C:/Users/ShyreneChing/IdeaProjects/MP Parser/src\Java.g4 by ANTLR 4.9
 package gen;
+import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -11483,4 +11484,30 @@ public class JavaParser extends Parser {
 			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
 		}
 	}
+
+//	public static boolean matches(String input) {
+//		try {
+//			JavaLexer lexer = new JavaLexer(new ANTLRStringStream(input));
+//			regExParser parser = new regExParser(new CommonTokenStream(lexer));
+//			parser.goal();
+//			return true;
+//		} catch (RuntimeException e) {
+//			return false;
+//		}
+//		catch (Exception e) {
+//			return false;
+//		}
+//		catch (OutOfMemoryError e) {
+//			return false;
+//		}
+//
+//	}
+//
+//	@Override
+//	public void reportError(RecognitionException e) {
+//		throw new RuntimeException(e);
+//	}
+
+
+
 }
