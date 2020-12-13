@@ -1,7 +1,6 @@
 import gen.JavaCustomListener;
-import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import gen.JavaLexer;
@@ -18,7 +17,7 @@ public class Main {
             JavaLexer lexer = new JavaLexer(input);
             JavaParser parser = new JavaParser(new CommonTokenStream(lexer));
             parser.addParseListener(new JavaCustomListener());
-            parser.classDeclaration();
+            parser.compilationUnit();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
