@@ -39,8 +39,16 @@ public class ErrorListener extends BaseErrorListener {
             } else if(temp[1].equals("(")){
                 msg = "uneven parentheses, missing one ')' for '('";
             }
-
+        } else if (msg.contains("missing")){
+            temp = msg.split("'");
+            System.out.println(temp[1]);
+            if (msg.contains("++")){
+                msg = "double '+' in arithmetic expression";
+            }
         }
+
+
+
         //System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
         errorMsg = errorMsg + "\n" + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
     }

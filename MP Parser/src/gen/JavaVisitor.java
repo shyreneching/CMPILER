@@ -1397,6 +1397,12 @@ public interface JavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnaryExpressionNotPlusMinus(JavaParser.UnaryExpressionNotPlusMinusContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JavaParser#postfixExpressionInc}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPostfixExpressionInc(JavaParser.PostfixExpressionIncContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JavaParser#postfixExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -1251,6 +1251,7 @@ andExpression
 
 equalityExpression
 	:	relationalExpression
+	|   postfixExpressionInc
 	|	equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
 	;
@@ -1307,13 +1308,22 @@ unaryExpressionNotPlusMinus
 	|	castExpression
 	;
 
-postfixExpression
-	:	(	primary
+postfixExpressionInc
+	:		primary
 		|	expressionName
-		)
+
+		(	postIncrementExpression_lf_postfixExpression
+		|	postDecrementExpression_lf_postfixExpression
+		)*
+	;
+
+postfixExpression
+	:		primary
+		|	expressionName
+
 //		(	postIncrementExpression_lf_postfixExpression
 //		|	postDecrementExpression_lf_postfixExpression
-//		)
+//		)*
 	;
 
 postIncrementExpression

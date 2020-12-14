@@ -2318,6 +2318,16 @@ public interface JavaListener extends ParseTreeListener {
 	 */
 	void exitUnaryExpressionNotPlusMinus(JavaParser.UnaryExpressionNotPlusMinusContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JavaParser#postfixExpressionInc}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostfixExpressionInc(JavaParser.PostfixExpressionIncContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaParser#postfixExpressionInc}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostfixExpressionInc(JavaParser.PostfixExpressionIncContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JavaParser#postfixExpression}.
 	 * @param ctx the parse tree
 	 */

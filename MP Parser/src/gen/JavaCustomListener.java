@@ -2788,6 +2788,18 @@ public class JavaCustomListener implements JavaListener {
      *
      * <p>The default implementation does nothing.</p>
      */
+    @Override public void enterPostfixExpressionInc(JavaParser.PostfixExpressionIncContext ctx) { }
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override public void exitPostfixExpressionInc(JavaParser.PostfixExpressionIncContext ctx) { }
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override public void enterPostfixExpression(JavaParser.PostfixExpressionContext ctx) { }
     /**
      * {@inheritDoc}
