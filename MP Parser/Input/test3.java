@@ -5,7 +5,8 @@ public class Main {
 		scan("Hello. I need your number: " ,x);
 		
 		for (int i; i < 10; i++) { //syntax error #1
-			System.out.println("Petmalu " +x+); //syntax error #2
+			int x = 1;
+			//System.out.println("Petmalu " +x+); //syntax error #2
 
 		//syntax error #3 (missing curly brace)
 	}
