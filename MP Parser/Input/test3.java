@@ -5,7 +5,7 @@ public class Main {
 		scan("Hello. I need your number: " ,x);
 		
 		for (int i; i < 10; i++) { //syntax error #1
-			print("Petmalu " +x+); //syntax error #2
+			System.out.println("Petmalu " +x+); //syntax error #2
 
 		//syntax error #3 (missing curly brace)
 	}
@@ -13,7 +13,7 @@ public class Main {
 	public static void testTwo(float x) {
 		if(x = 4) then //syntax error #4 
 		{
-			print(x is a very huge number); //syntax error #5
+			System.out.println(x is a very huge number); //syntax error #5
 		} 
 	}
 

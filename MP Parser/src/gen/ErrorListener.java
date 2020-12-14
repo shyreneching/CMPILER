@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ErrorListener extends BaseErrorListener {
@@ -30,20 +31,33 @@ public class ErrorListener extends BaseErrorListener {
             sourceName = String.format("%s; ", sourceName);
         }
         String[] temp;
-
+        String[] unnanType = {"boolean;", "byte;", "short;", "int;", "long;", "char;", "float;", "double;", "String;", "Object;"};
         if (msg.contains("extraneous")){
             temp = msg.split("'");
-            System.out.println(temp[1]);
-            if (temp[1].equals(")")){
+//            System.out.println(temp[1]);
+            if (msg.contains("'++' expecting ';'")){
+                msg = "redundant '+' in arithmetic expression";
+            } else if (msg.contains("input ';' expecting")){
+                msg = "lacking argument before ';'";
+            } else if (temp[1].equals(")")){
                 msg = "uneven parentheses, missing one '(' for ')'";
             } else if(temp[1].equals("(")){
                 msg = "uneven parentheses, missing one ')' for '('";
             }
-        } else if (msg.contains("missing")){
+        }
+        else if (msg.contains("missing")){
             temp = msg.split("'");
-            System.out.println(temp[1]);
+//            System.out.println(temp[1]);
             if (msg.contains("++")){
-                msg = "double '+' in arithmetic expression";
+                msg = "irrelevant '++' in arithmetic expression";
+            }
+        }
+        else {
+            if (Arrays.stream(unnanType).anyMatch(msg::contains)){
+                temp = msg.split("'");
+                System.out.println("temp[1]  "+temp[1]);
+                msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
+
             }
         }
 
@@ -57,24 +71,12 @@ public class ErrorListener extends BaseErrorListener {
     public String toString() {
         return errorMsg;
     }
-//    @Override public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e){
-////        System.out.println("Entering here");
-////        System.out.println("recognizer:" + recognizer);
-////        System.out.println("offendingSymbol:" + offendingSymbol.toString());
-////        System.out.println("line:" + line);
-////        System.out.println("charPositionInLine:" + charPositionInLine);
-//          System.out.println("msg:" + msg);
-////        System.out.println("e:" + e);
-//
-//        String temp = msg;
-//        if (temp.contains("missing")){
-//            int i = temp.indexOf("missing") + 9;
-//            System.out.println(temp.charAt(i));
-//
-//            System.out.println("At line: " + line + " you seem to be missing a '"+ temp.charAt(i)+ "' on the character position: "+  charPositionInLine);
-//            msg = "At line: " + line + " you seem to be missing a '"+ temp.charAt(i)+ "' on the character position: "+  charPositionInLine;
-//        }
-//
-//    }
+    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
+        System.out.println("Hello ambiguity");
+    }
+
+    @Override public void reportAttemptingFullContext(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, java.util.BitSet conflictingAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) { /* compiled code */ }
+
+    @Override public void reportContextSensitivity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, int prediction, org.antlr.v4.runtime.atn.ATNConfigSet configs) { System.out.println("Hello reportContextSensitivity"); }
 }
 
