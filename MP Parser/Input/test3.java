@@ -1,6 +1,5 @@
 public class Main {
 	
-	
 	public static void testOne() {
 		int x = 0;
 		scan("Hello. I need your number: " ,x);

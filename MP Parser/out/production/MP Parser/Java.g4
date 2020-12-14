@@ -1311,9 +1311,9 @@ postfixExpression
 	:	(	primary
 		|	expressionName
 		)
-		(	postIncrementExpression_lf_postfixExpression
-		|	postDecrementExpression_lf_postfixExpression
-		)*
+//		(	postIncrementExpression_lf_postfixExpression
+//		|	postDecrementExpression_lf_postfixExpression
+//		)
 	;
 
 postIncrementExpression
