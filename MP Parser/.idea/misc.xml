@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/Java.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\ShyreneChing\IdeaProjects\MP Parser" />
+          <option name="outputDir" value="C:\Users\ShyreneChing\Desktop\DLSU\AY 2020-2021 Term 1\CMPILER\MP\MC01\MP Parser\MP Parser\src" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="gen" />

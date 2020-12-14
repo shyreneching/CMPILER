@@ -1,6 +1,6 @@
 public class Main {
 	public static int myFunction(int x) {
-		int add = x + 50 ++ ; //syntax error #1
+		int add = x + 50 ++ 5; //syntax error #1
 		
 		return int; //syntax error #2
 	}
@@ -14,6 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		myFunction(50);
 		myFunctionFloat(50.0f);
+
 	}
 	/*
     public static void main(String[] args) {

@@ -1,11 +1,7 @@
-import gen.ErrorListener;
-import gen.JavaCustomListener;
+import gen.*;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-
-import gen.JavaLexer;
-import gen.JavaParser;
 
 import java.io.IOException;
 import java.util.logging.Level;

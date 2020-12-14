@@ -4,6 +4,9 @@ import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ErrorListener extends BaseErrorListener {
     public static ErrorListener INSTANCE = new ErrorListener();
     private static final boolean REPORT_SYNTAX_ERRORS = true;
@@ -26,7 +29,18 @@ public class ErrorListener extends BaseErrorListener {
         if (!sourceName.isEmpty()) {
             sourceName = String.format("%s; ", sourceName);
         }
+        String[] temp;
 
+        if (msg.contains("extraneous")){
+            temp = msg.split("'");
+            System.out.println(temp[1]);
+            if (temp[1].equals(")")){
+                msg = "uneven parentheses, missing one '(' for ')'";
+            } else if(temp[1].equals("(")){
+                msg = "uneven parentheses, missing one ')' for '('";
+            }
+
+        }
         //System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
         errorMsg = errorMsg + "\n" + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
     }
