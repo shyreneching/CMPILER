@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
         try {
-            CharStream input = (CharStream) new ANTLRFileStream("input/test.txt");
+            CharStream input = (CharStream) new ANTLRFileStream("input/test2.java");
             JavaLexer lexer = new JavaLexer(input);
             JavaParser parser = new JavaParser(new CommonTokenStream(lexer));
             //lexer.removeErrorListeners();

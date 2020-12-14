@@ -27,7 +27,7 @@ public class ErrorListener extends BaseErrorListener {
             sourceName = String.format("%s; ", sourceName);
         }
 
-        System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
+        //System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
         errorMsg = errorMsg + "\n" + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
     }
 

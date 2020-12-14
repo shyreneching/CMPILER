@@ -1684,7 +1684,10 @@ public class JavaCustomListener implements JavaListener {
      *
      * <p>The default implementation does nothing.</p>
      */
-    @Override public void enterArguments(JavaParser.ArgumentsContext ctx) { }
+    @Override public void enterArguments(JavaParser.ArgumentsContext ctx) {
+
+
+    }
     /**
      * {@inheritDoc}
      *
