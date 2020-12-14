@@ -50,12 +50,14 @@ public class ErrorListener extends BaseErrorListener {
 //            System.out.println(temp[1]);
             if (msg.contains("++")){
                 msg = "irrelevant '++' in arithmetic expression";
+            } else if (msg.contains("missing ';'")){
+
+                msg = "Excess '"+ temp[3] + "'";
             }
         }
         else {
             if (Arrays.stream(unnanType).anyMatch(msg::contains)){
                 temp = msg.split("'");
-                System.out.println("temp[1]  "+temp[1]);
                 msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
 
             }
@@ -71,12 +73,12 @@ public class ErrorListener extends BaseErrorListener {
     public String toString() {
         return errorMsg;
     }
-    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
-        System.out.println("Hello ambiguity");
-    }
-
-    @Override public void reportAttemptingFullContext(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, java.util.BitSet conflictingAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) { /* compiled code */ }
-
-    @Override public void reportContextSensitivity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, int prediction, org.antlr.v4.runtime.atn.ATNConfigSet configs) { System.out.println("Hello reportContextSensitivity"); }
+//    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
+//        System.out.println("Hello ambiguity");
+//    }
+//
+//    @Override public void reportAttemptingFullContext(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, java.util.BitSet conflictingAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) { /* compiled code */ }
+//
+//    @Override public void reportContextSensitivity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, int prediction, org.antlr.v4.runtime.atn.ATNConfigSet configs) { System.out.println("Hello reportContextSensitivity"); }
 }
 

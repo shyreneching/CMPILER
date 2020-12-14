@@ -19,6 +19,7 @@ public class Main {
             parser.removeErrorListeners();
             lexer.addErrorListener(ErrorListener.INSTANCE);
             parser.addErrorListener(ErrorListener.INSTANCE);
+            //parser.setErrorHandler(new ErrorRecovery());
 
 //            parser.addErrorListener(new ErrorListener());
             parser.addParseListener(new JavaCustomListener());

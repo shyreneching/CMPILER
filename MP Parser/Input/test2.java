@@ -1,6 +1,6 @@
 public class Main {
 	public static int myFunction(int x) {
-		int x = x+ 5 +; //syntax error #1
+		int x = x+ 5 * ; //syntax error #1
 		int x = x+ 5 ++ 5; //syntax error #1
 
 		return int ; //syntax error #2
