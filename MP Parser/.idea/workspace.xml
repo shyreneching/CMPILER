@@ -2,238 +2,214 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46036947-06bc-478f-bb96-a2db3146e838" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/PseudoCode.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCode.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PseudoCodeVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input/test3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Input/test3.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MP Parser/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MP Parser/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/PseudoLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/PseudoParser.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MP Parser/PseudoParser.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AbstractDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AbstractPackDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AccessSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AdditiveExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AliasDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AlignmentspecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AndExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AsmDefinitionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AssignmentExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AssignmentOperatorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeArgumentClauseContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeNamespaceContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$AttributeSpecifierSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BalancedTokenSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BalancedtokenContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BaseClauseContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BaseSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BaseSpecifierListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BaseTypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BlockDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BraceOrEqualInitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$BracedInitListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CaptureContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CaptureDefaultContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CaptureListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CastExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassHeadContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassHeadNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassKeyContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassOrDeclTypeContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ClassVirtSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CompoundStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConditionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConditionalExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConstantExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConstructorInitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConversionDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConversionFunctionIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ConversionTypeIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CvQualifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$CvqualifierseqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclSpecifierSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclarationStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclarationseqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeclaratoridContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DecltypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DeleteExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$DynamicExceptionSpecificationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ElaboratedTypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EmptyDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumHeadContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumbaseContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumeratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumeratorDefinitionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumeratorListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EnumkeyContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$EqualityExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExceptionDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExceptionSpecificationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExclusiveOrExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExplicitInstantiationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExplicitSpecializationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExpressionListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ExpressionStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ForInitStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ForRangeDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ForRangeInitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$FunctionBodyContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$FunctionDefinitionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$FunctionSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$FunctionTryBlockContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$HandlerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$HandlerSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$IdExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InclusiveOrExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitDeclaratorListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitcaptureContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitializerClauseContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$InitializerListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$IterationStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$JumpStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LabeledStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LambdaCaptureContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LambdaDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LambdaExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LambdaIntroducerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LinkageSpecificationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LiteralContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LiteralOperatorIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LogicalAndExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$LogicalOrExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemInitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemInitializerListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemberDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemberDeclaratorListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemberSpecificationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MemberdeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MeminitializeridContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$MultiplicativeExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NamespaceAliasContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NamespaceAliasDefinitionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NamespaceDefinitionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NamespaceNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NestedNameSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NewDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NewExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NewInitializerContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NewPlacementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NewTypeIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoExceptExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoPointerAbstractDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoPointerAbstractPackDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoPointerDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoPointerNewDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$NoeExceptSpecificationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$OpaqueEnumDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$OperatorFunctionIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$OriginalNamespaceNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ParameterDeclarationClauseContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ParameterDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ParameterDeclarationListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ParametersAndQualifiersContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PointerAbstractDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PointerDeclaratorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PointerMemberExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PointerOperatorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PostfixExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PrimaryExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PseudoDestructorNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$PureSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$QualifiedIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$QualifiednamespacespecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$RefqualifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$RelationalExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$SelectionStatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ShiftExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ShiftOperatorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$SimpleCaptureContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$SimpleDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$SimpleTemplateIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$SimpleTypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$StatementContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$StatementSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$StaticAssertDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$StorageClassSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateArgumentContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateArgumentListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateParameterContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TemplateparameterListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TheOperatorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TheTypeIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TheTypeNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$ThrowExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TrailingReturnTypeContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TrailingTypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TrailingTypeSpecifierSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TranslationUnitContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TryBlockContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeIdListContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeIdOfTheTypeIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeNameSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeParameterContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypeSpecifierSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$TypedefNameContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$UnaryExpressionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$UnaryOperatorContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$UnqualifiedIdContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$UsingDeclarationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$UsingDirectiveContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$VirtualSpecifierContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser$VirtualSpecifierSeqContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParser.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParserBaseListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParserBaseVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParserListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoParserVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PseudoCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoCode.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCode.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCode.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeBaseListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeBaseVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gen/PseudoLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoLexer.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PseudoCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoCode.g4" afterDir="false" />
->>>>>>> c88e7fde38611a0ba63789ed48164daeac3bbe54
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/PseudoCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MP Parser/PseudoCode.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/ErrorListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCode.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCode.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AbstractDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AbstractPackDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AccessSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AdditiveExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AliasDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AlignmentspecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AndExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AsmDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AssignmentExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AssignmentOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeArgumentClauseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeNamespaceContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$AttributeSpecifierSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BalancedTokenSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BalancedtokenContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BaseClauseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BaseSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BaseSpecifierListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BaseTypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BlockDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BraceOrEqualInitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$BracedInitListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CaptureContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CaptureDefaultContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CaptureListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CastExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassHeadContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassHeadNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassKeyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassOrDeclTypeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ClassVirtSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CompoundStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConditionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConditionalExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConstantExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConstructorInitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConversionDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConversionFunctionIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ConversionTypeIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CvQualifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$CvqualifierseqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclSpecifierSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclarationStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclarationseqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeclaratoridContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DecltypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DeleteExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$DynamicExceptionSpecificationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ElaboratedTypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EmptyDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumHeadContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumbaseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumeratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumeratorDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumeratorListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EnumkeyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$EqualityExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExceptionDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExceptionSpecificationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExclusiveOrExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExplicitInstantiationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExplicitSpecializationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExpressionListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ExpressionStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ForInitStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ForRangeDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ForRangeInitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$FunctionBodyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$FunctionDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$FunctionSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$FunctionTryBlockContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$HandlerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$HandlerSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$IdExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InclusiveOrExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitDeclaratorListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitcaptureContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitializerClauseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$InitializerListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$IterationStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$JumpStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LabeledStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LambdaCaptureContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LambdaDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LambdaExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LambdaIntroducerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LinkageSpecificationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LiteralContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LiteralOperatorIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LogicalAndExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$LogicalOrExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemInitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemInitializerListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemberDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemberDeclaratorListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemberSpecificationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MemberdeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MeminitializeridContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MethodNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$MultiplicativeExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NamespaceAliasContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NamespaceAliasDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NamespaceDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NamespaceNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NestedNameSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NewDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NewExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NewInitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NewPlacementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NewTypeIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoExceptExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoPointerAbstractDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoPointerAbstractPackDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoPointerDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoPointerNewDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$NoeExceptSpecificationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$OpaqueEnumDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$OperatorFunctionIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$OriginalNamespaceNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ParameterDeclarationClauseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ParameterDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ParameterDeclarationListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ParametersAndQualifiersContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PointerAbstractDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PointerDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PointerMemberExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PointerOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PostfixExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PrimaryExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PseudoDestructorNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$PureSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$QualifiedIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$QualifiednamespacespecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$RefqualifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$RelationalExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$SelectionStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ShiftExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ShiftOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$SimpleCaptureContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$SimpleDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$SimpleTemplateIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$SimpleTypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$StatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$StatementSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$StaticAssertDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$StorageClassSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateArgumentContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateArgumentListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateParameterContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TemplateparameterListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TheOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TheTypeIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TheTypeNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$ThrowExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TrailingReturnTypeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TrailingTypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TrailingTypeSpecifierSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TranslationUnitContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TryBlockContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeIdListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeIdOfTheTypeIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeNameSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeParameterContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypeSpecifierSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$TypedefNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$UnaryExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$UnaryOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$UnqualifiedIdContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$UsingDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$UsingDirectiveContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$VirtualSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser$VirtualSpecifierSeqContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoCodeVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MP Parser/gen/PseudoLexer.class" beforeDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,8 +220,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PseudoCode.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="230" column="15" selection-start-line="230" selection-end-line="230" selection-end-column="15" />
+            <state relative-caret-position="204">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -289,11 +265,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+            <state relative-caret-position="238">
+              <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="644" column="10" selection-start-line="644" selection-start-column="10" selection-end-line="644" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ErrorListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -327,43 +321,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>declarationseq</find>
-      <find>declaration</find>
-      <find>methot</find>
-      <find>methodInvocation</find>
-      <find>methodName</find>
-      <find>methodInvo</find>
-      <find>statementSeq</find>
-      <find>Pseudo</find>
-      <find>typeName</find>
-      <find>stat</find>
-      <find>compoundStatement:</find>
-      <find>expressionStatement:</find>
+      <find>additive</find>
+      <find>additi</find>
+      <find>lexer</find>
+      <find>LEXER</find>
+      <find>primary</find>
+      <find>add</find>
+      <find>'+'</find>
+      <find>additiveExpression</find>
+      <find>shiftExpression</find>
+      <find>relationalExpression</find>
+      <find>id</find>
+      <find>INT</find>
+      <find>primitiveType</find>
+      <find>variableDeclaratorList</find>
+      <find>'='</find>
+      <find>assign</find>
+      <find>identifier</find>
+      <find>int</find>
+      <find>'int'</find>
+      <find>variable</find>
+      <find>variabledec</find>
+      <find>variabledecla</find>
+      <find>unannType</find>
+      <find>numericType</find>
+      <find>referenceType</find>
+      <find>return</find>
+      <find>forstate</find>
       <find>statement</find>
-      <find>statement:</find>
-      <find>Assign</find>
-      <find>DivAssign</find>
-      <find>Equal</find>
-      <find>expression:</find>
-      <find>logicalOrExpression</find>
-      <find>leftHandSide</find>
-      <find>expressionName</find>
-      <find>equality</find>
-      <find>condition</find>
-      <find>condition:</find>
-      <find>assignment</find>
-      <find>fieldAccess</find>
-      <find>assignm</find>
-      <find>out</find>
-      <find>assignmentExpression</find>
-      <find>unit</find>
+      <find>'{'</find>
+      <find>forst</find>
     </findStrings>
     <replaceStrings>
       <replace>Object</replace>
       <replace>Java</replace>
-      <replace>'create'</replace>
-      <replace>Pseudo</replace>
-      <replace>PseudoCode</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -377,22 +368,13 @@
         <option value="$PROJECT_DIR$/src/parser/Main.java" />
         <option value="$PROJECT_DIR$/src/gen/JavaCustomeListener.java" />
         <option value="$PROJECT_DIR$/src/gen/JavaParser.java" />
+        <option value="$PROJECT_DIR$/src/gen/JavaCustomListener.java" />
+        <option value="$PROJECT_DIR$/src/Java.g4" />
+        <option value="$PROJECT_DIR$/src/gen/ErrorListener.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/Input/test1.cpp" />
         <option value="$PROJECT_DIR$/Input/test2.cpp" />
         <option value="$PROJECT_DIR$/src/C.g4" />
-        <option value="$PROJECT_DIR$/Input/test2.java" />
-        <option value="$PROJECT_DIR$/src/gen/JavaCustomListener.java" />
-        <option value="$PROJECT_DIR$/src/gen/CommonToken.java" />
-        <option value="$PROJECT_DIR$/src/gen/CommonTokenCustom.java" />
-        <option value="$PROJECT_DIR$/src/Java.g4" />
-        <option value="$PROJECT_DIR$/src/CPP14Parser.g4" />
-        <option value="$PROJECT_DIR$/src/gen/ErrorListener.java" />
-        <option value="$PROJECT_DIR$/src/PseudoLexer.g4" />
-        <option value="$PROJECT_DIR$/src/PseudoParser.g4" />
-        <option value="$PROJECT_DIR$/src/Pseudo.g4" />
-        <option value="$PROJECT_DIR$/src/CPP.g4" />
-        <option value="$PROJECT_DIR$/src/PseudoCode.g4" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -426,23 +408,18 @@
               <item name="MP Parser" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MP Parser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MP Parser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608048611447" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1607965346560" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -453,11 +430,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ShyreneChing\Desktop\DLSU\AY 2020-2021 Term 1\CMPILER\MP\MC01\MP Parser\MP Parser\src" />
-      <recent name="C:\Users\ShyreneChing\Desktop\DLSU\AY 2020-2021 Term 1\CMPILER\MP\MC01\MP Parser\MP Parser\src\gen" />
-      <recent name="C:\Users\ShyreneChing\Desktop\DLSU\AY 2020-2021 Term 1\CMPILER\MP\MC01\MP Parser\MP Parser" />
       <recent name="C:\Users\ShyreneChing\IdeaProjects\MP Parser\src" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -489,20 +475,17 @@
       <workItem from="1607849342143" duration="5112000" />
       <workItem from="1607859136953" duration="8512000" />
       <workItem from="1607934208688" duration="20388000" />
-      <workItem from="1608008984587" duration="21678000" />
-      <workItem from="1608043905985" duration="1516000" />
-      <workItem from="1608045544002" duration="3001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69006000" />
+    <option name="totallyTimeSpent" value="42837000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18120806" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18120806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -511,18 +494,18 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4818792" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4818792" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Tool Output" order="9" sideWeight="0.4986577" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Tool Output" order="9" sideWeight="0.4986577" weight="0.32786885" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51134646" side_tool="true" weight="0.5508197" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="13" sideWeight="0.48865354" weight="0.3385269" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" sideWeight="0.48865354" weight="0.5508197" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.48590603" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.24966443" />
@@ -584,7 +567,7 @@
     <entry file="file://$PROJECT_DIR$/gen/MainBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/src/parser/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/gen/JavaBaseVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/JavaLexer.java" />
+    <entry file="file://$PROJECT_DIR$/src/gen/JavaLexer.java" />
     <entry file="jar://$PROJECT_DIR$/lib/antlr-4.9-complete.jar!/org/antlr/v4/runtime/ConsoleErrorListener.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -609,7 +592,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Input/test2.cpp" />
+    <entry file="file://$PROJECT_DIR$/src/Java.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="1089" column="17" selection-end-line="1791" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CPP14Lexer.g4" />
+    <entry file="file://$PROJECT_DIR$/Input/test2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gen/ErrorListener.java" />
     <entry file="file://$PROJECT_DIR$/Input/test3.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -618,76 +616,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gen/JavaListener.java" />
-    <entry file="file://$PROJECT_DIR$/Input/test2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gen/JavaCustomListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/gen/CommonTokenCustom.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.9-complete.jar!/org/antlr/v4/runtime/CommonTokenFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CPP14Parser.g4" />
-    <entry file="file://$PROJECT_DIR$/src/CPP14Lexer.g4" />
-    <entry file="file://$PROJECT_DIR$/Input/test1.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gen/ErrorListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="86" column="46" selection-start-line="86" selection-start-column="46" selection-end-line="86" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PseudoLexer.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="407" column="36" selection-start-line="2" selection-end-line="407" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PseudoParser.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6086">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PseudoLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.9-complete.jar!/org/antlr/v4/runtime/CommonTokenStream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.9-complete.jar!/org/antlr/v4/runtime/CommonToken.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Input/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="1" selection-start-line="2" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Input/test1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Input/test2.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-end-line="29" />
         </state>
       </provider>
     </entry>
@@ -698,38 +646,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CPP/g4.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CPP.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="1234" selection-start-line="1234" selection-end-line="1234" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Java.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="1089" column="17" selection-end-line="1791" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PseudoCode.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="230" column="15" selection-start-line="230" selection-end-line="230" selection-end-column="15" />
+        <state relative-caret-position="324">
+          <caret line="644" column="10" selection-start-line="644" selection-start-column="10" selection-end-line="644" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        <state relative-caret-position="238">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
