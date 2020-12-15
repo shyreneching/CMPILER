@@ -5,7 +5,7 @@ public class Main {
 		int x = 0;
 		float _veryWeirdIdentifier567 = 999.9f;
 		bool y = (5 > 4 && T) || (F && !(x==0));
-		int[] myArray = new int[10];
+		int[] myArray = create int[10];
 		
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("What is the input: ");

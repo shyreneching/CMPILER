@@ -1,6 +1,7 @@
 package gen;
 
 import org.antlr.v4.runtime.BaseErrorListener;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
@@ -30,44 +31,79 @@ public class ErrorListener extends BaseErrorListener {
         if (!sourceName.isEmpty()) {
             sourceName = String.format("%s; ", sourceName);
         }
+
         String[] temp;
         String[] unnanType = {"boolean;", "byte;", "short;", "int;", "long;", "char;", "float;", "double;", "String;", "Object;"};
         if (msg.contains("extraneous")){
             temp = msg.split("'");
-//            System.out.println(temp[1]);
+            System.out.println(temp[1]);
             if (msg.contains("'++' expecting ';'")){
                 msg = "redundant '+' in arithmetic expression";
             } else if (msg.contains("input ';' expecting")){
                 msg = "lacking argument before ';'";
             } else if (temp[1].equals(")")){
-                msg = "uneven parentheses, missing one '(' for ')'";
+                msg = "uneven parentheses, missing one '('";
             } else if(temp[1].equals("(")){
-                msg = "uneven parentheses, missing one ')' for '('";
+                msg = "uneven parentheses, missing one ')'";
+            } else {
+                msg = "irrelevant character '"+ temp[1] +"' found";
             }
         }
         else if (msg.contains("missing")){
             temp = msg.split("'");
 //            System.out.println(temp[1]);
             if (msg.contains("++")){
-                msg = "irrelevant '++' in arithmetic expression";
-            } else if (msg.contains("missing ';'")){
-
-                msg = "Excess '"+ temp[3] + "'";
+                msg = "multiple '+' in arithmetic expression";
+            } else if (msg.contains("--")){
+                msg = "multiple '-' in arithmetic expression";
+//            }
+//            else if (msg.contains("missing ';'")){
+//                msg = "Excess '"+ temp[3] + "'";
+            } else{
+                msg = "looking for '" + temp[1] +"' but found " + temp[3];
             }
         }
-        else {
+        else if(msg.contains("mismatched input")) {
+            temp = msg.split("'");
             if (Arrays.stream(unnanType).anyMatch(msg::contains)){
                 temp = msg.split("'");
                 msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
 
+            } else {
+                msg = "found '"+ temp[1] + "' looking for " + msg.split("expecting ")[1]+"";
             }
+        }
+        else if(msg.contains("no viable alternative")){
+            temp = msg.split("'");
+            msg = "mo solution for : '" + temp[1];
+        } else if(msg.contains("cannot find symbol")) {
+            msg = "No symbol '" + msg.split("'")[1] + "' found";
+
+        } else {
+            msg = "";
         }
 
 
-
+//        underlineError(recognizer, offendingSymbol, line, charPositionInLine);
         //System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
-        errorMsg = errorMsg + "\n" + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
+        errorMsg = errorMsg + "\n" + "Syntax Error: " + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
     }
+
+//    protected void underlineError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine) {
+//
+//        CommonTokenStream tokens = (CommonTokenStream)recognizer.getInputStream();
+//        String input = tokens.getTokenSource().getInputStream().toString();
+//        String[] lines = input.split("\n"); String errorLine = lines[line - 1];
+//        System.err.println(errorLine);
+//        for (int i=0; i<charPositionInLine; i++) System.err.print(" ");
+//        int start = offendingSymbol.getNumberOfOnChannelTokens();
+//        int stop = charPositionInLine + 6;
+//        if ( start>=0 && stop>=0 ) {
+//            for (int i=start; i<=stop; i++) System.err.print("^");
+//
+//        }
+//        System.err.println();
+//    }
 
     @Override
     public String toString() {

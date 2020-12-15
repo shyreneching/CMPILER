@@ -861,6 +861,7 @@ basicForStatement
 	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' statement
 	;
 
+
 basicForStatementNoShortIf
 	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' statementNoShortIf
 	;
@@ -1044,18 +1045,18 @@ primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	;
 
 classInstanceCreationExpression
-	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	primary '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'create' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	expressionName '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	primary '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 classInstanceCreationExpression_lf_primary
-	:	'.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 classInstanceCreationExpression_lfno_primary
-	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'create' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	expressionName '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 typeArgumentsOrDiamond
@@ -1099,7 +1100,8 @@ arrayAccess_lfno_primary
 	;
 
 methodInvocation
-	:	methodName '(' argumentList? ')'
+	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("Too many parentheses");}
+	|   methodName '(' argumentList? ')'
 	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
 	|	primary '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1129,8 +1131,8 @@ methodReference
 	|	primary '::' typeArguments? Identifier
 	|	'super' '::' typeArguments? Identifier
 	|	typeName '.' 'super' '::' typeArguments? Identifier
-	|	classType '::' typeArguments? 'new'
-	|	arrayType '::' 'new'
+	|	classType '::' typeArguments? 'create'
+	|	arrayType '::' 'create'
 	;
 
 methodReference_lf_primary
@@ -1142,15 +1144,15 @@ methodReference_lfno_primary
 	|	referenceType '::' typeArguments? Identifier
 	|	'super' '::' typeArguments? Identifier
 	|	typeName '.' 'super' '::' typeArguments? Identifier
-	|	classType '::' typeArguments? 'new'
-	|	arrayType '::' 'new'
+	|	classType '::' typeArguments? 'create'
+	|	arrayType '::' 'create'
 	;
 
 arrayCreationExpression
-	:	'new' primitiveType dimExprs dims?
-	|	'new' classOrInterfaceType dimExprs dims?
-	|	'new' primitiveType dims arrayInitializer
-	|	'new' classOrInterfaceType dims arrayInitializer
+	:	'create' primitiveType dimExprs dims?
+	|	'create' classOrInterfaceType dimExprs dims?
+	|	'create' primitiveType dims arrayInitializer
+	|	'create' classOrInterfaceType dims arrayInitializer
 	;
 
 dimExprs
@@ -1252,6 +1254,7 @@ andExpression
 equalityExpression
 	:	relationalExpression
 	|   postfixExpressionInc
+	|   equalityExpression '=' relationalExpression {notifyErrorListeners("Assignment operator found, expecting comparison operator");}
 	|	equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
 	;
@@ -1274,9 +1277,17 @@ shiftExpression
 
 additiveExpression
 	:	multiplicativeExpression
-	|	additiveExpression '+' multiplicativeExpression
-	|	additiveExpression '-' multiplicativeExpression
+	//|   additiveExpression addminus addminus multiplicativeExpression  {notifyErrorListeners("Redundant '+' symbol");}
+	|   additiveExpression (INC | DEC) multiplicativeExpression  {notifyErrorListeners("redundant operator symbol found");}
+	|   additiveExpression addminus {notifyErrorListeners("missing argument after operator");}
+	|	additiveExpression addminus multiplicativeExpression
+	//|	additiveExpression '-' multiplicativeExpression
 	;
+
+addminus
+    : '+'
+    | '-'
+    ;
 
 multiplicativeExpression
 	:	unaryExpression
@@ -1382,7 +1393,7 @@ INT : 'int';
 INTERFACE : 'interface';
 LONG : 'long';
 NATIVE : 'native';
-NEW : 'new';
+NEW : 'create';
 PACKAGE : 'package';
 PRIVATE : 'private';
 PROTECTED : 'protected';
