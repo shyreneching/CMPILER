@@ -355,6 +355,8 @@ variableDeclarator
 	:	variableDeclaratorId ('=' variableInitializer)?
 	;
 
+
+
 variableDeclaratorId
 	:	Identifier dims?
 	;
@@ -850,26 +852,42 @@ doStatement
 forStatement
 	:	basicForStatement
 	|	enhancedForStatement
-	;
+	|   pseudoForStatement
+;
+
 
 forStatementNoShortIf
 	:	basicForStatementNoShortIf
 	|	enhancedForStatementNoShortIf
+	|   pseudoForStatement
 	;
 
+pseudoForStatement
+    :'for' forInit? 'up to' literal '{'statement '}'
+    ;
+
 basicForStatement
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' statement
+	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
 	;
 
 
 basicForStatementNoShortIf
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' statementNoShortIf
+	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
 	;
 
 forInit
 	:	statementExpressionList
-	|	localVariableDeclaration
+	|	forinitializer
 	;
+
+forinitializer
+    :	variableModifier* unannType variableDeclaratorId customAssignError
+    ;
+
+customAssignError
+    :	'=' variableInitializer
+    |   {notifyErrorListeners("did not find assignment operator");}
+    ;
 
 forUpdate
 	:	statementExpressionList
@@ -1045,18 +1063,18 @@ primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	;
 
 classInstanceCreationExpression
-	:	'create' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	expressionName '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	primary '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	primary '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 classInstanceCreationExpression_lf_primary
-	:	'.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 classInstanceCreationExpression_lfno_primary
-	:	'create' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
-	|	expressionName '.' 'create' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
+	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
 typeArgumentsOrDiamond
@@ -1131,8 +1149,8 @@ methodReference
 	|	primary '::' typeArguments? Identifier
 	|	'super' '::' typeArguments? Identifier
 	|	typeName '.' 'super' '::' typeArguments? Identifier
-	|	classType '::' typeArguments? 'create'
-	|	arrayType '::' 'create'
+	|	classType '::' typeArguments? 'new'
+	|	arrayType '::' 'new'
 	;
 
 methodReference_lf_primary
@@ -1144,15 +1162,15 @@ methodReference_lfno_primary
 	|	referenceType '::' typeArguments? Identifier
 	|	'super' '::' typeArguments? Identifier
 	|	typeName '.' 'super' '::' typeArguments? Identifier
-	|	classType '::' typeArguments? 'create'
-	|	arrayType '::' 'create'
+	|	classType '::' typeArguments? 'new'
+	|	arrayType '::' 'new'
 	;
 
 arrayCreationExpression
-	:	'create' primitiveType dimExprs dims?
-	|	'create' classOrInterfaceType dimExprs dims?
-	|	'create' primitiveType dims arrayInitializer
-	|	'create' classOrInterfaceType dims arrayInitializer
+	:	'new' primitiveType dimExprs dims?
+	|	'new' classOrInterfaceType dimExprs dims?
+	|	'new' primitiveType dims arrayInitializer
+	|	'new' classOrInterfaceType dims arrayInitializer
 	;
 
 dimExprs
@@ -1393,7 +1411,7 @@ INT : 'int';
 INTERFACE : 'interface';
 LONG : 'long';
 NATIVE : 'native';
-NEW : 'create';
+NEW : 'new';
 PACKAGE : 'package';
 PRIVATE : 'private';
 PROTECTED : 'protected';

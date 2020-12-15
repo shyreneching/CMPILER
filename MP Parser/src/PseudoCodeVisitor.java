@@ -934,6 +934,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForStatementNoShortIf(PseudoCodeParser.ForStatementNoShortIfContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#pseudoForStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#basicForStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -951,6 +957,18 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForInit(PseudoCodeParser.ForInitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#forinitializer}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForinitializer(PseudoCodeParser.ForinitializerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#customAssignError}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#forUpdate}.
 	 * @param ctx the parse tree

@@ -1863,6 +1863,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBasicForStatement(PseudoCodeParser.BasicForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1894,6 +1906,30 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitForInit(PseudoCodeParser.ForInitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForinitializer(PseudoCodeParser.ForinitializerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForinitializer(PseudoCodeParser.ForinitializerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

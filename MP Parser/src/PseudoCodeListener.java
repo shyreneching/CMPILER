@@ -1547,6 +1547,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitForStatementNoShortIf(PseudoCodeParser.ForStatementNoShortIfContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#pseudoForStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#pseudoForStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#basicForStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -1576,6 +1586,26 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForInit(PseudoCodeParser.ForInitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#forinitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterForinitializer(PseudoCodeParser.ForinitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#forinitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitForinitializer(PseudoCodeParser.ForinitializerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#customAssignError}.
+	 * @param ctx the parse tree
+	 */
+	void enterCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#customAssignError}.
+	 * @param ctx the parse tree
+	 */
+	void exitCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#forUpdate}.
 	 * @param ctx the parse tree
