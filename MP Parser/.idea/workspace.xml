@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46036947-06bc-478f-bb96-a2db3146e838" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/PseudoCode.interp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/PseudoCode.tokens" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/PseudoCodeBaseListener.java" afterDir="false" />
@@ -228,9 +229,11 @@
       <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gen/PseudoCodeVisitor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gen/PseudoLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoLexer.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PseudoCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoCode.g4" afterDir="false" />
+>>>>>>> c88e7fde38611a0ba63789ed48164daeac3bbe54
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -455,18 +458,6 @@
       <recent name="C:\Users\ShyreneChing\Desktop\DLSU\AY 2020-2021 Term 1\CMPILER\MP\MC01\MP Parser\MP Parser" />
       <recent name="C:\Users\ShyreneChing\IdeaProjects\MP Parser\src" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
