@@ -4,7 +4,7 @@ func void testOne() {
 	
 	for int i to 10 { //syntax error #1
 		print("Petmalu " +x+); //syntax error #2
-
+	}
 	//syntax error #3 (missing curly brace)
 }
 

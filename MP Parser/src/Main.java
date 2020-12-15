@@ -1,7 +1,3 @@
-
-import gen.ErrorListener;
-import gen.*;
-
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -14,7 +10,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
         try {
-            CharStream input = CharStreams.fromFileName("input/test4.cpp");
+            CharStream input = CharStreams.fromFileName("input/test3.cpp");
             PseudoCodeLexer lexer = new PseudoCodeLexer(input);
             PseudoCodeParser parser = new PseudoCodeParser(new CommonTokenStream(lexer));
             lexer.removeErrorListeners();
@@ -24,7 +20,7 @@ public class Main {
             //parser.setErrorHandler(new ErrorRecovery());
 //            parser.addErrorListener(new ErrorListener());
             parser.addParseListener(new PseudoCodeBaseListener());
-            parser.translationUnit();
+            parser.compilationUnit();
             System.out.println(ErrorListener.INSTANCE.toString());
         } catch (IOException ex) {
             //System.out.println(ex);

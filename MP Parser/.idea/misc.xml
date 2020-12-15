@@ -56,7 +56,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/PseudoCode.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="src\gen" />
+          <option name="outputDir" value="src" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />
