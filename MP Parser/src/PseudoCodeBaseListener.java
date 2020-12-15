@@ -2763,6 +2763,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAdditiveExpressionfactored(PseudoCodeParser.AdditiveExpressionfactoredContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAdditiveExpressionfactored(PseudoCodeParser.AdditiveExpressionfactoredContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAddminus(PseudoCodeParser.AddminusContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2782,6 +2794,30 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMultiplicativeExpression(PseudoCodeParser.MultiplicativeExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMult(PseudoCodeParser.MultContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMult(PseudoCodeParser.MultContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

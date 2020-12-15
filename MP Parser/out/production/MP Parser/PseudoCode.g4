@@ -724,7 +724,7 @@ blockStatements
 
 blockStatement
 	:	localVariableDeclarationStatement
-	|	classDeclaration
+//	|	classDeclaration
 	|	statement
 	;
 
@@ -1118,7 +1118,7 @@ arrayAccess_lfno_primary
 	;
 
 methodInvocation
-	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("Too many parentheses");}
+	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("redundant parentheses");}
 	|   methodName '(' argumentList? ')'
 	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1272,7 +1272,7 @@ andExpression
 equalityExpression
 	:	relationalExpression
 	|   postfixExpressionInc
-	|   equalityExpression '=' relationalExpression {notifyErrorListeners("Assignment operator found, expecting comparison operator");}
+	|   equalityExpression '=' relationalExpression {notifyErrorListeners("assignment operator found, expecting comparison operator");}
 	|	equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
 	;
@@ -1296,11 +1296,18 @@ shiftExpression
 additiveExpression
 	:	multiplicativeExpression
 	//|   additiveExpression addminus addminus multiplicativeExpression  {notifyErrorListeners("Redundant '+' symbol");}
-	|   additiveExpression (INC | DEC) multiplicativeExpression  {notifyErrorListeners("redundant operator symbol found");}
-	|   additiveExpression addminus {notifyErrorListeners("missing argument after operator");}
-	|	additiveExpression addminus multiplicativeExpression
+	|   additiveExpression additiveExpressionfactored
 	//|	additiveExpression '-' multiplicativeExpression
 	;
+
+
+additiveExpressionfactored
+    : INC multiplicativeExpression  {notifyErrorListeners("redundant '+' operator symbol found");}
+    | DEC multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
+    | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
+    | addminus multiplicativeExpression
+    ;
+
 
 addminus
     : '+'
@@ -1309,10 +1316,21 @@ addminus
 
 multiplicativeExpression
 	:	unaryExpression
-	|	multiplicativeExpression '*' unaryExpression
-	|	multiplicativeExpression '/' unaryExpression
-	|	multiplicativeExpression '%' unaryExpression
+	|	multiplicativeExpression multiplicativeExpressionfactored
 	;
+
+multiplicativeExpressionfactored
+    : '**' unaryExpression  {notifyErrorListeners("redundant '*' operator symbol found");}
+    | '%%' unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
+    | mult {notifyErrorListeners("lacking argument after operator/excess operator");}
+    | mult unaryExpression
+    ;
+
+mult
+    : '*'
+    | '/'
+    | '%'
+    ;
 
 unaryExpression
 	:	preIncrementExpression

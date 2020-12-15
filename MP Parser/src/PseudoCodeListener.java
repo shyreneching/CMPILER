@@ -2297,6 +2297,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitAdditiveExpression(PseudoCodeParser.AdditiveExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#additiveExpressionfactored}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdditiveExpressionfactored(PseudoCodeParser.AdditiveExpressionfactoredContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#additiveExpressionfactored}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdditiveExpressionfactored(PseudoCodeParser.AdditiveExpressionfactoredContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#addminus}.
 	 * @param ctx the parse tree
 	 */
@@ -2316,6 +2326,26 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultiplicativeExpression(PseudoCodeParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#multiplicativeExpressionfactored}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#multiplicativeExpressionfactored}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#mult}.
+	 * @param ctx the parse tree
+	 */
+	void enterMult(PseudoCodeParser.MultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#mult}.
+	 * @param ctx the parse tree
+	 */
+	void exitMult(PseudoCodeParser.MultContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#unaryExpression}.
 	 * @param ctx the parse tree

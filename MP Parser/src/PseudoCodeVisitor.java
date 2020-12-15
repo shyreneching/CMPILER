@@ -1384,6 +1384,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAdditiveExpression(PseudoCodeParser.AdditiveExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#additiveExpressionfactored}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditiveExpressionfactored(PseudoCodeParser.AdditiveExpressionfactoredContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#addminus}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1395,6 +1401,18 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMultiplicativeExpression(PseudoCodeParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#multiplicativeExpressionfactored}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#mult}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMult(PseudoCodeParser.MultContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#unaryExpression}.
 	 * @param ctx the parse tree
