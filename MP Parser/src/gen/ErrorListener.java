@@ -75,7 +75,14 @@ public class ErrorListener extends BaseErrorListener {
         }
         else if(msg.contains("no viable alternative")){
             temp = msg.split("'");
-            msg = "mo solution for : '" + temp[1];
+            if (Arrays.stream(unnanType).anyMatch(msg::contains)){
+                temp = msg.split("'");
+                msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
+
+            }else{
+                msg = "no solution for : '" + temp[1];
+            }
+
         } else if(msg.contains("cannot find symbol")) {
             msg = "No symbol '" + msg.split("'")[1] + "' found";
 
