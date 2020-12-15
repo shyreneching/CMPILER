@@ -335,15 +335,17 @@ declarationStatement: blockDeclaration;
 declarationseq: declaration+;
 
 declaration:
-	blockDeclaration
-	| functionDefinition
-	| templateDeclaration
-	| explicitInstantiation
-	| explicitSpecialization
-	| linkageSpecification
-	| namespaceDefinition
-	| emptyDeclaration
-	| attributeDeclaration;
+//	blockDeclaration
+//	| functionDefinition
+//	| templateDeclaration
+//	| explicitInstantiation
+//	| explicitSpecialization
+//	| linkageSpecification
+//	| namespaceDefinition
+//	| emptyDeclaration
+//	| attributeDeclaration;
+    functionDefinition
+    | mainDefinition;
 
 blockDeclaration:
 	simpleDeclaration
@@ -379,6 +381,10 @@ declSpecifier:
 
 declSpecifierSeq: declSpecifier+ attributeSpecifierSeq?;
 
+declSpecifierSeqEdited:
+    simpleTypeSpecifier (LeftBracket RightBracket)*;
+//    |
+
 storageClassSpecifier:
 	Register
 	| Static
@@ -407,23 +413,27 @@ trailingTypeSpecifierSeq:
 	trailingTypeSpecifier+ attributeSpecifierSeq?;
 
 simpleTypeSpecifier:
-	nestedNameSpecifier? theTypeName
-	| nestedNameSpecifier Template simpleTemplateId
-	| Char
-	| Char16
-	| Char32
-	| Wchar
+//	nestedNameSpecifier? theTypeName
+//	| nestedNameSpecifier Template simpleTemplateId
+//	| Char
+    Char
+//	| Char16
+//	| Char32
+//	| Wchar
 	| Bool
 	| Short
 	| Int
 	| Long
-	| Signed
-	| Unsigned
+//	| Signed
+//	| Unsigned
+    | Signed Int
+    | Unsigned Int
 	| Float
 	| Double
 	| Void
-	| Auto
-	| decltypeSpecifier;
+//	| Auto
+//	| decltypeSpecifier;
+    | String;
 
 theTypeName:
 	className
@@ -533,8 +543,9 @@ initDeclaratorList: initDeclarator (Comma initDeclarator)*;
 initDeclarator: declarator initializer?;
 
 declarator:
-	pointerDeclarator
-	| noPointerDeclarator parametersAndQualifiers trailingReturnType;
+//	pointerDeclarator
+//	| noPointerDeclarator parametersAndQualifiers trailingReturnType;
+    noPointerDeclarator parametersAndQualifiers;
 
 pointerDeclarator: (pointerOperator Const?)* noPointerDeclarator;
 
@@ -610,7 +621,11 @@ parameterDeclaration:
 	);
 
 functionDefinition:
-	attributeSpecifierSeq? declSpecifierSeq? declarator virtualSpecifierSeq? functionBody;
+//	attributeSpecifierSeq? declSpecifierSeq? declarator virtualSpecifierSeq? functionBody;
+    Func declSpecifierSeqEdited declarator functionBody;
+
+mainDefinition:
+    Main LeftParen RightParen functionBody;
 
 functionBody:
 	constructorInitializer? compoundStatement
@@ -896,6 +911,12 @@ MultiLineMacro:
 
 Directive: '#' ~ [\n]* -> channel (HIDDEN);
 /*Keywords*/
+
+Func: 'func';
+
+Main: 'main';
+
+String: 'String';
 
 Alignas: 'alignas';
 
