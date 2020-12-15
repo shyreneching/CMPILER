@@ -230,8 +230,12 @@ ambiguousName
 
 compilationUnit
 //	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
-    :   classBodyDeclaration*
+    :   classBodyDeclaration* mainDeclaration classBodyDeclaration* EOF
 	;
+
+mainDeclaration
+    :   'main' '(' ')' block
+    ;
 
 packageDeclaration
 	:	packageModifier* 'package' Identifier ('.' Identifier)* ';'
@@ -320,17 +324,17 @@ classBody
 
 classBodyDeclaration
 	:	classMemberDeclaration
-	|	instanceInitializer
-	|	staticInitializer
-	|	constructorDeclaration
+//	|	instanceInitializer
+//	|	staticInitializer
+//	|	constructorDeclaration
 	;
 
 classMemberDeclaration
-	:	fieldDeclaration
-	|	methodDeclaration
-	|	classDeclaration
-	|	interfaceDeclaration
-	|	';'
+//	:	fieldDeclaration
+	:	methodDeclaration
+//	|	classDeclaration
+//	|	interfaceDeclaration
+//	|	';'
 	;
 
 fieldDeclaration
@@ -428,7 +432,8 @@ unannArrayType
 	;
 
 methodDeclaration
-	:	methodModifier* methodHeader methodBody
+//	:	methodModifier* methodHeader methodBody
+    :   'func' result methodDeclarator block
 	;
 
 methodModifier
@@ -1397,6 +1402,9 @@ castExpression
 	;
 
 // LEXER
+
+FUNC : 'func';
+MAIN : 'main';
 
 // §3.9 Keywords
 
