@@ -54,6 +54,9 @@ public class ErrorListener extends BaseErrorListener {
 //            }
 //            else if (msg.contains("missing ';'")){
 //                msg = "Excess '"+ temp[3] + "'";
+            } else if (temp[1].equals("}")){
+                msg = "missing closing bracket '}'";
+                line = line - 1;
             } else{
                 msg = "looking for '" + temp[1] +"' but found " + temp[3];
             }
@@ -82,13 +85,13 @@ public class ErrorListener extends BaseErrorListener {
             msg = "No symbol '" + msg.split("'")[1] + "' found";
 
 //        } else {
-//            msg = "";
+
         }
 
 
 //        underlineError(recognizer, offendingSymbol, line, charPositionInLine);
         //System.err.println(msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName);
-        errorMsg = errorMsg + "\n" + "Syntax Error: " + msg+ ", line "+line+":"+charPositionInLine+" in file: "+ sourceName;
+        errorMsg = errorMsg + "\n" + "Syntax Error: " + msg+ ", (Line "+line+")[Char "+charPositionInLine+"] in file: "+ sourceName;
     }
 
 //    protected void underlineError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine) {
