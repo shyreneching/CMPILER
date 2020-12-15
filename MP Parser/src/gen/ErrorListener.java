@@ -86,8 +86,8 @@ public class ErrorListener extends BaseErrorListener {
         } else if(msg.contains("cannot find symbol")) {
             msg = "No symbol '" + msg.split("'")[1] + "' found";
 
-        } else {
-            msg = "";
+//        } else {
+//            msg = "";
         }
 
 

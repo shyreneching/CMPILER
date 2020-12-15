@@ -100,9 +100,11 @@ lambdaDeclarator:
 postfixExpression:
 	primaryExpression
 	| postfixExpression LeftBracket (expression | bracedInitList) RightBracket
-	| postfixExpression LeftParen expressionList? RightParen
+	| postfixExpression LeftParen expressionList RightParen
+	| postfixExpression LeftParen RightParen {notifyErrorListeners("too many parentheses");}
 	| (simpleTypeSpecifier | typeNameSpecifier) (
-		LeftParen expressionList? RightParen
+//		LeftParen expressionList? RightParen
+		LeftParen expressionList RightParen
 		| bracedInitList
 	)
 	| postfixExpression (Dot | Arrow) (
@@ -188,7 +190,7 @@ additiveExpression:
 		(Plus | Minus) multiplicativeExpression
 	)*
 //	| (PlusPlus | MinusMinus)
-	| (
+	| multiplicativeExpression (
       		(PlusPlus | MinusMinus) multiplicativeExpression {notifyErrorListeners("redundant operator symbol");}
       	)*
 	;
@@ -273,8 +275,24 @@ expressionStatement: expression? Semi;
 
 compoundStatement: LeftBrace statementSeq? RightBrace;
 
-statementSeq: statement+;
+statementSeq:
+    statement+
+    | methodInvocation
+;
 
+methodInvocation:
+    methodName LeftParen statement? RightParen LeftParen expression? RightParen{notifyErrorListeners("Too many parentheses");}
+	|   methodName '(' statement? ')'
+	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
+	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
+	|	primary '.' typeArguments? Identifier '(' argumentList? ')'
+	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
+	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+	;
+
+methodName:
+    Identifier
+;
 selectionStatement:
 	If LeftParen condition RightParen statement (Else statement)?
 	| Switch LeftParen condition RightParen statement;
@@ -306,6 +324,7 @@ jumpStatement:
 		Break
 		| Continue
 		| Return (expression | bracedInitList)?
+//		|  Return (expression | bracedInitList) ()?
 		| Goto Identifier
 	) Semi;
 

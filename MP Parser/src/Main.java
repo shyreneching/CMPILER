@@ -14,16 +14,16 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
         try {
-            CharStream input = CharStreams.fromFileName("input/test2.cpp");
-            PseudoLexer lexer = new PseudoLexer(input);
-            PseudoParser parser = new PseudoParser(new CommonTokenStream(lexer));
+            CharStream input = CharStreams.fromFileName("input/test4.cpp");
+            PseudoCodeLexer lexer = new PseudoCodeLexer(input);
+            PseudoCodeParser parser = new PseudoCodeParser(new CommonTokenStream(lexer));
             lexer.removeErrorListeners();
             parser.removeErrorListeners();
             lexer.addErrorListener(ErrorListener.INSTANCE);
             parser.addErrorListener(ErrorListener.INSTANCE);
             //parser.setErrorHandler(new ErrorRecovery());
 //            parser.addErrorListener(new ErrorListener());
-            parser.addParseListener(new PseudoParserBaseListener());
+            parser.addParseListener(new PseudoCodeBaseListener());
             parser.translationUnit();
             System.out.println(ErrorListener.INSTANCE.toString());
         } catch (IOException ex) {
