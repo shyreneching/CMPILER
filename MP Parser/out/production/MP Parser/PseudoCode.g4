@@ -864,7 +864,6 @@ forStatementNoShortIf
 
 pseudoForStatement
     :'for' forInit? 'up to' literal '{'statement '}'
-    |'for' forInit? 'up to' literal '{'statement (interfaceMethodDeclaration | classDeclaration) {notifyErrorListeners("lacking closing '}'");}
     ;
 
 basicForStatement
