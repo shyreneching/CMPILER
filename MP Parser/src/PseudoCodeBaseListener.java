@@ -1,4 +1,4 @@
-// Generated from C:/Users/ShyreneChing/Desktop/DLSU/AY 2020-2021 Term 1/CMPILER/MP/MC01/MP Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
+// Generated from C:/Users/erwin/Desktop/CMPILER/MP-Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -406,6 +406,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCompilationUnit(PseudoCodeParser.CompilationUnitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMainDeclaration(PseudoCodeParser.MainDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMainDeclaration(PseudoCodeParser.MainDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1683,6 +1695,30 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScanInvocation(PseudoCodeParser.ScanInvocationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScanInvocation(PseudoCodeParser.ScanInvocationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIfThenStatement(PseudoCodeParser.IfThenStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2655,6 +2691,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOnlyConditionalExpression(PseudoCodeParser.OnlyConditionalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOnlyConditionalExpression(PseudoCodeParser.OnlyConditionalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConditionalOrExpression(PseudoCodeParser.ConditionalOrExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2667,6 +2715,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOnlyConditionalOrExpression(PseudoCodeParser.OnlyConditionalOrExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOnlyConditionalOrExpression(PseudoCodeParser.OnlyConditionalOrExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConditionalAndExpression(PseudoCodeParser.ConditionalAndExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2674,6 +2734,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitConditionalAndExpression(PseudoCodeParser.ConditionalAndExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOnlyConditionalAndExpression(PseudoCodeParser.OnlyConditionalAndExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOnlyConditionalAndExpression(PseudoCodeParser.OnlyConditionalAndExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2727,6 +2799,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOnlyEqualityExpression(PseudoCodeParser.OnlyEqualityExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOnlyEqualityExpression(PseudoCodeParser.OnlyEqualityExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRelationalExpression(PseudoCodeParser.RelationalExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2734,6 +2818,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRelationalExpression(PseudoCodeParser.RelationalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOnlyRelationalExpression(PseudoCodeParser.OnlyRelationalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOnlyRelationalExpression(PseudoCodeParser.OnlyRelationalExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2806,6 +2902,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArithmetic(PseudoCodeParser.ArithmeticContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArithmetic(PseudoCodeParser.ArithmeticContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

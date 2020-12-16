@@ -753,7 +753,7 @@ statement
 	:	statementWithoutTrailingSubstatement
 //	|	labeledStatement
 	|	ifThenStatement
-	|	ifThenElseStatement
+//	|	ifThenElseStatement
 	|	whileStatement
 	|	forStatement
 	;
@@ -767,18 +767,19 @@ statementNoShortIf
 	;
 
 statementWithoutTrailingSubstatement
+//    :
 	:	block
 	|	emptyStatement
 	|	expressionStatement
-	|	assertStatement
+//	|	assertStatement
 	|	switchStatement
 	|	doStatement
 	|	breakStatement
 	|	continueStatement
 	|	returnStatement
-	|	synchronizedStatement
-	|	throwStatement
-	|	tryStatement
+//	|	synchronizedStatement
+//	|	throwStatement
+//	|	tryStatement
 //Added item
 	|   localVariableDeclaration
 	;
@@ -805,12 +806,23 @@ statementExpression
 	|	preDecrementExpression
 	|	postIncrementExpression
 	|	postDecrementExpression
+	|   printInvocation
+	|   scanInvocation
 	|	methodInvocation
-	|	classInstanceCreationExpression
+//	|	classInstanceCreationExpression
 	;
 
+printInvocation
+    :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
+    ;
+
+scanInvocation
+    :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
+    ;
+
 ifThenStatement
-	:	'if' '(' expression ')' statement
+//	:	'if' '(' expression ')' statement
+    : 'if' '(' onlyConditionalExpression ')' 'then' block ('else' 'if' '(' onlyConditionalExpression ')' 'then' block)* ('else' 'then' block)?
 	;
 
 ifThenElseStatement
@@ -827,7 +839,8 @@ assertStatement
 	;
 
 switchStatement
-	:	'switch' '(' expression ')' switchBlock
+//	:	'switch' '(' expression ')' switchBlock
+    :   'switch' '(' Identifier ')' switchBlock
 	;
 
 switchBlock
@@ -844,7 +857,7 @@ switchLabels
 
 switchLabel
 	:	'case' constantExpression ':'
-	|	'case' enumConstantName ':'
+//	|	'case' enumConstantName ':'
 	|	'default' ':'
 	;
 
@@ -853,7 +866,9 @@ enumConstantName
 	;
 
 whileStatement
-	:	'while' '(' expression ')' statement
+//	:	'while' '(' expression ')' statement
+    :	'while' Identifier 'up to' additiveExpression block
+    |   'while' Identifier 'down to' additiveExpression block
 	;
 
 whileStatementNoShortIf
@@ -861,7 +876,9 @@ whileStatementNoShortIf
 	;
 
 doStatement
-	:	'do' statement 'while' '(' expression ')' ';'
+//	:	'do' statement 'while' '(' expression ')' ';'
+    :   'do' block 'while' Identifier 'up to' additiveExpression
+    |   'do' block 'while' Identifier 'down to' additiveExpression
 	;
 
 forStatement
@@ -872,14 +889,14 @@ forStatement
 
 
 forStatementNoShortIf
-	:	basicForStatementNoShortIf
-	|	enhancedForStatementNoShortIf
-	|   pseudoForStatement
+//	:	basicForStatementNoShortIf
+//	|	enhancedForStatementNoShortIf
+	:   pseudoForStatement
 	;
 
 pseudoForStatement
-    :'for' forInit 'up to' additiveExpression '{'statement '}'
-    |'for' forInit 'down to' additiveExpression '{'statement '}'
+    :'for' forInit 'up to' additiveExpression block
+    |'for' forInit 'down to' additiveExpression block
     ;
 
 basicForStatement
@@ -892,12 +909,13 @@ basicForStatementNoShortIf
 	;
 
 forInit
-	:	statementExpressionList
+    :
+//	:	statementExpressionList
 	|	forinitializer
 	;
 
 forinitializer
-    :	unannType? variableDeclaratorId customAssignError
+    :	unannType variableDeclaratorId customAssignError
     |	Identifier
     ;
 
@@ -923,11 +941,13 @@ enhancedForStatementNoShortIf
 	;
 
 breakStatement
-	:	'break' Identifier? ';'
+//	:	'break' Identifier? ';'
+    :   'break' ';'
 	;
 
 continueStatement
-	:	'continue' Identifier? ';'
+//	:	'continue' Identifier? ';'
+	:	'continue' ';'
 	;
 
 returnStatement
@@ -1262,9 +1282,18 @@ conditionalExpression
 //	|	conditionalOrExpression '?' expression ':' conditionalExpression
 	;
 
+onlyConditionalExpression
+    : Identifier | BooleanLiteral | onlyConditionalOrExpression
+    ;
+
 conditionalOrExpression
 	:	conditionalAndExpression
 	|	conditionalOrExpression '||' conditionalAndExpression
+	;
+
+onlyConditionalOrExpression
+	:	onlyConditionalAndExpression
+	|	onlyConditionalOrExpression '||' onlyConditionalAndExpression
 	;
 
 conditionalAndExpression
@@ -1272,24 +1301,37 @@ conditionalAndExpression
 	|	conditionalAndExpression '&&' inclusiveOrExpression
 	;
 
+onlyConditionalAndExpression
+	:	onlyEqualityExpression
+	|	onlyConditionalAndExpression '&&' onlyEqualityExpression
+	;
+
 inclusiveOrExpression
 	:	exclusiveOrExpression
-	|	inclusiveOrExpression '|' exclusiveOrExpression
+//	|	inclusiveOrExpression '|' exclusiveOrExpression
 	;
 
 exclusiveOrExpression
 	:	andExpression
-	|	exclusiveOrExpression '^' andExpression
+//	|	exclusiveOrExpression '^' andExpression
 	;
 
 andExpression
 	:	equalityExpression
-	|	andExpression '&' equalityExpression
+//	|	andExpression '&' equalityExpression
 	;
 
 equalityExpression
 	:	relationalExpression
-	|   postfixExpressionInc
+//	|   postfixExpressionInc
+	|   equalityExpression '=' relationalExpression {notifyErrorListeners("assignment operator found, expecting comparison operator");}
+	|	equalityExpression '==' relationalExpression
+	|	equalityExpression '!=' relationalExpression
+	;
+
+onlyEqualityExpression
+	:	onlyRelationalExpression
+//	|   postfixExpressionInc
 	|   equalityExpression '=' relationalExpression {notifyErrorListeners("assignment operator found, expecting comparison operator");}
 	|	equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
@@ -1304,11 +1346,18 @@ relationalExpression
 //	|	relationalExpression 'instanceof' referenceType
 	;
 
+onlyRelationalExpression
+	:	relationalExpression '<' shiftExpression
+    |	relationalExpression '>' shiftExpression
+    |	relationalExpression '<=' shiftExpression
+    |	relationalExpression '>=' shiftExpression
+	;
+
 shiftExpression
 	:	additiveExpression
-	|	shiftExpression '<' '<' additiveExpression
-	|	shiftExpression '>' '>' additiveExpression
-	|	shiftExpression '>' '>' '>' additiveExpression
+//	|	shiftExpression '<' '<' additiveExpression
+//	|	shiftExpression '>' '>' additiveExpression
+//	|	shiftExpression '>' '>' '>' additiveExpression
 	;
 
 additiveExpression
@@ -1320,7 +1369,9 @@ additiveExpression
 
 
 additiveExpressionfactored
-    : arithmetic arithmetic arithmetic* multiplicativeExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    : arithmetic arithmetic (arithmetic | INC | DEC)* multiplicativeExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | INC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | DEC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
 //    | '--' '-'* multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
     | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
     | addminus multiplicativeExpression
@@ -1338,7 +1389,7 @@ multiplicativeExpression
 	;
 
 multiplicativeExpressionfactored
-    :    arithmetic arithmetic arithmetic* unaryExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    :    arithmetic arithmetic (arithmetic | INC | DEC)* unaryExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
 //    |   '%%' '%'* unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
     |   mult {notifyErrorListeners("lacking argument after operator/excess operator");}
     |   mult unaryExpression
@@ -1426,11 +1477,14 @@ castExpression
 
 // LEXER
 
+PRINT : 'print';
+SCAN : 'scan';
 FUNC : 'func';
 MAIN : 'main';
 STRING : 'String';
 CONSTANT : 'constant';
 CREATE : 'create';
+THEN : 'then';
 
 // §3.9 Keywords
 

@@ -1,4 +1,4 @@
-// Generated from C:/Users/ShyreneChing/Desktop/DLSU/AY 2020-2021 Term 1/CMPILER/MP/MC01/MP Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
+// Generated from C:/Users/erwin/Desktop/CMPILER/MP-Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -207,6 +207,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCompilationUnit(PseudoCodeParser.CompilationUnitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#mainDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMainDeclaration(PseudoCodeParser.MainDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#packageDeclaration}.
 	 * @param ctx the parse tree
@@ -844,6 +850,18 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatementExpression(PseudoCodeParser.StatementExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#printInvocation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScanInvocation(PseudoCodeParser.ScanInvocationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#ifThenStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1330,17 +1348,35 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConditionalExpression(PseudoCodeParser.ConditionalExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#onlyConditionalExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOnlyConditionalExpression(PseudoCodeParser.OnlyConditionalExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#conditionalOrExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConditionalOrExpression(PseudoCodeParser.ConditionalOrExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#onlyConditionalOrExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOnlyConditionalOrExpression(PseudoCodeParser.OnlyConditionalOrExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#conditionalAndExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConditionalAndExpression(PseudoCodeParser.ConditionalAndExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#onlyConditionalAndExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOnlyConditionalAndExpression(PseudoCodeParser.OnlyConditionalAndExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#inclusiveOrExpression}.
 	 * @param ctx the parse tree
@@ -1366,11 +1402,23 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEqualityExpression(PseudoCodeParser.EqualityExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#onlyEqualityExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOnlyEqualityExpression(PseudoCodeParser.OnlyEqualityExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#relationalExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitRelationalExpression(PseudoCodeParser.RelationalExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#onlyRelationalExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOnlyRelationalExpression(PseudoCodeParser.OnlyRelationalExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#shiftExpression}.
 	 * @param ctx the parse tree
@@ -1407,6 +1455,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#arithmetic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmetic(PseudoCodeParser.ArithmeticContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#mult}.
 	 * @param ctx the parse tree

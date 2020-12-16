@@ -1,4 +1,4 @@
-// Generated from C:/Users/ShyreneChing/Desktop/DLSU/AY 2020-2021 Term 1/CMPILER/MP/MC01/MP Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
+// Generated from C:/Users/erwin/Desktop/CMPILER/MP-Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -336,6 +336,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCompilationUnit(PseudoCodeParser.CompilationUnitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#mainDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterMainDeclaration(PseudoCodeParser.MainDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#mainDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitMainDeclaration(PseudoCodeParser.MainDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#packageDeclaration}.
 	 * @param ctx the parse tree
@@ -1397,6 +1407,26 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitStatementExpression(PseudoCodeParser.StatementExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#printInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#printInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void enterScanInvocation(PseudoCodeParser.ScanInvocationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void exitScanInvocation(PseudoCodeParser.ScanInvocationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#ifThenStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -2207,6 +2237,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitConditionalExpression(PseudoCodeParser.ConditionalExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#onlyConditionalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOnlyConditionalExpression(PseudoCodeParser.OnlyConditionalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#onlyConditionalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOnlyConditionalExpression(PseudoCodeParser.OnlyConditionalExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#conditionalOrExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -2217,6 +2257,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitConditionalOrExpression(PseudoCodeParser.ConditionalOrExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#onlyConditionalOrExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOnlyConditionalOrExpression(PseudoCodeParser.OnlyConditionalOrExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#onlyConditionalOrExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOnlyConditionalOrExpression(PseudoCodeParser.OnlyConditionalOrExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#conditionalAndExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -2226,6 +2276,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConditionalAndExpression(PseudoCodeParser.ConditionalAndExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#onlyConditionalAndExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOnlyConditionalAndExpression(PseudoCodeParser.OnlyConditionalAndExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#onlyConditionalAndExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOnlyConditionalAndExpression(PseudoCodeParser.OnlyConditionalAndExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#inclusiveOrExpression}.
 	 * @param ctx the parse tree
@@ -2267,6 +2327,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitEqualityExpression(PseudoCodeParser.EqualityExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#onlyEqualityExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOnlyEqualityExpression(PseudoCodeParser.OnlyEqualityExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#onlyEqualityExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOnlyEqualityExpression(PseudoCodeParser.OnlyEqualityExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#relationalExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -2276,6 +2346,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRelationalExpression(PseudoCodeParser.RelationalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#onlyRelationalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOnlyRelationalExpression(PseudoCodeParser.OnlyRelationalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#onlyRelationalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOnlyRelationalExpression(PseudoCodeParser.OnlyRelationalExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#shiftExpression}.
 	 * @param ctx the parse tree
@@ -2336,6 +2416,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultiplicativeExpressionfactored(PseudoCodeParser.MultiplicativeExpressionfactoredContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#arithmetic}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmetic(PseudoCodeParser.ArithmeticContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#arithmetic}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmetic(PseudoCodeParser.ArithmeticContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#mult}.
 	 * @param ctx the parse tree
