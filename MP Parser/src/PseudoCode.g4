@@ -751,7 +751,7 @@ localVariableDeclaration
 
 statement
 	:	statementWithoutTrailingSubstatement
-	|	labeledStatement
+//	|	labeledStatement
 	|	ifThenStatement
 	|	ifThenElseStatement
 	|	whileStatement
@@ -1125,9 +1125,9 @@ arrayAccess_lf_primary
 
 arrayAccess_lfno_primary
 	:	(	expressionName '[' expression ']'
-		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
+//		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
 		)
-		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
+//		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
 
 methodInvocation
