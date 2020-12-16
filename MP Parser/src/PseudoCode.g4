@@ -77,7 +77,8 @@ type
 
 primitiveType
 	:	annotation* numericType
-	|	annotation* 'boolean'
+//	|	annotation* 'boolean'
+    |	annotation* 'bool'
 	;
 
 numericType
@@ -149,7 +150,8 @@ arrayType
 	;
 
 dims
-	:	annotation* '[' ']' (annotation* '[' ']')*
+//	:	annotation* '[' ']' (annotation* '[' ']')*
+    :   '[' ']' ('[' ']')*
 	;
 
 typeParameter
@@ -229,8 +231,13 @@ ambiguousName
  */
 
 compilationUnit
-	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
+//	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
+    :   classBodyDeclaration* mainDeclaration classBodyDeclaration* EOF
 	;
+
+mainDeclaration
+    :   'main' '(' ')' block
+    ;
 
 packageDeclaration
 	:	packageModifier* 'package' Identifier ('.' Identifier)* ';'
@@ -319,17 +326,17 @@ classBody
 
 classBodyDeclaration
 	:	classMemberDeclaration
-	|	instanceInitializer
-	|	staticInitializer
-	|	constructorDeclaration
+//	|	instanceInitializer
+//	|	staticInitializer
+//	|	constructorDeclaration
 	;
 
 classMemberDeclaration
-	:	fieldDeclaration
-	|	methodDeclaration
-	|	classDeclaration
-	|	interfaceDeclaration
-	|	';'
+//	:	fieldDeclaration
+	:	methodDeclaration
+//	|	classDeclaration
+//	|	interfaceDeclaration
+//	|	';'
 	;
 
 fieldDeclaration
@@ -358,7 +365,8 @@ variableDeclarator
 
 
 variableDeclaratorId
-	:	Identifier dims?
+//	:	Identifier dims?
+    :   Identifier
 	;
 
 variableInitializer
@@ -368,12 +376,14 @@ variableInitializer
 
 unannType
 	:	unannPrimitiveType
-	|	unannReferenceType
+//	|	unannReferenceType
 	;
 
 unannPrimitiveType
 	:	numericType
-	|	'boolean'
+//	|   'boolean'
+	|	'bool'
+	|   'String'
 	;
 
 unannReferenceType
@@ -427,7 +437,8 @@ unannArrayType
 	;
 
 methodDeclaration
-	:	methodModifier* methodHeader methodBody
+//	:	methodModifier* methodHeader methodBody
+    :   'func' result methodDeclarator block
 	;
 
 methodModifier
@@ -703,7 +714,8 @@ singleElementAnnotation
  */
 
 arrayInitializer
-	:	'{' variableInitializerList? ','? '}'
+//	:	'{' variableInitializerList? ','? '}'
+    :   'create' unannType '[' additiveExpression ']'
 	;
 
 variableInitializerList
@@ -733,12 +745,13 @@ localVariableDeclarationStatement
 	;
 
 localVariableDeclaration
-	:	variableModifier* unannType variableDeclaratorList
+//	:	variableModifier* unannType variableDeclaratorList
+    :   ('constant')? unannType dims? variableDeclaratorList
 	;
 
 statement
 	:	statementWithoutTrailingSubstatement
-	|	labeledStatement
+//	|	labeledStatement
 	|	ifThenStatement
 	|	ifThenElseStatement
 	|	whileStatement
@@ -977,10 +990,10 @@ resource
 
 primary
 	:	(	primaryNoNewArray_lfno_primary
-		|	arrayCreationExpression
+//		|	arrayCreationExpression
 		)
-		(	primaryNoNewArray_lf_primary
-		)*
+//		(	primaryNoNewArray_lf_primary
+//		)*
 	;
 
 primaryNoNewArray
@@ -1035,17 +1048,17 @@ primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary
 
 primaryNoNewArray_lfno_primary
 	:	literal
-	|	typeName ('[' ']')* '.' 'class'
-	|	unannPrimitiveType ('[' ']')* '.' 'class'
-	|	'void' '.' 'class'
-	|	'this'
-	|	typeName '.' 'this'
+//	|	typeName ('[' ']')* '.' 'class'
+//	|	unannPrimitiveType ('[' ']')* '.' 'class'
+//	|	'void' '.' 'class'
+//	|	'this'
+//	|	typeName '.' 'this'
 	|	'(' expression ')'
-	|	classInstanceCreationExpression_lfno_primary
-	|	fieldAccess_lfno_primary
+//	|	classInstanceCreationExpression_lfno_primary
+//	|	fieldAccess_lfno_primary
 	|	arrayAccess_lfno_primary
 	|	methodInvocation_lfno_primary
-	|	methodReference_lfno_primary
+//	|	methodReference_lfno_primary
 	;
 
 primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary
@@ -1116,9 +1129,9 @@ arrayAccess_lf_primary
 
 arrayAccess_lfno_primary
 	:	(	expressionName '[' expression ']'
-		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
+//		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
 		)
-		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
+//		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
 
 methodInvocation
@@ -1137,10 +1150,10 @@ methodInvocation_lf_primary
 
 methodInvocation_lfno_primary
 	:	methodName '(' argumentList? ')'
-	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
-	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
 
 argumentList
@@ -1190,8 +1203,9 @@ constantExpression
 	;
 
 expression
-	:	lambdaExpression
-	|	assignmentExpression
+//	:	lambdaExpression
+//	|	assignmentExpression
+    :   assignmentExpression
 	;
 
 lambdaExpression
@@ -1215,7 +1229,7 @@ lambdaBody
 
 assignmentExpression
 	:	conditionalExpression
-	|	assignment
+//	|	assignment
 	;
 
 assignment
@@ -1245,7 +1259,7 @@ assignmentOperator
 
 conditionalExpression
 	:	conditionalOrExpression
-	|	conditionalOrExpression '?' expression ':' conditionalExpression
+//	|	conditionalOrExpression '?' expression ':' conditionalExpression
 	;
 
 conditionalOrExpression
@@ -1287,7 +1301,7 @@ relationalExpression
 	|	relationalExpression '>' shiftExpression
 	|	relationalExpression '<=' shiftExpression
 	|	relationalExpression '>=' shiftExpression
-	|	relationalExpression 'instanceof' referenceType
+//	|	relationalExpression 'instanceof' referenceType
 	;
 
 shiftExpression
@@ -1306,8 +1320,8 @@ additiveExpression
 
 
 additiveExpressionfactored
-    : INC multiplicativeExpression  {notifyErrorListeners("redundant '+' operator symbol found");}
-    | DEC multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
+    : arithmetic arithmetic arithmetic* multiplicativeExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+//    | '--' '-'* multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
     | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
     | addminus multiplicativeExpression
     ;
@@ -1324,11 +1338,20 @@ multiplicativeExpression
 	;
 
 multiplicativeExpressionfactored
-    : '**' unaryExpression  {notifyErrorListeners("redundant '*' operator symbol found");}
-    | '%%' unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
-    | mult {notifyErrorListeners("lacking argument after operator/excess operator");}
-    | mult unaryExpression
+    :    arithmetic arithmetic arithmetic* unaryExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+//    |   '%%' '%'* unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
+    |   mult {notifyErrorListeners("lacking argument after operator/excess operator");}
+    |   mult unaryExpression
     ;
+
+arithmetic
+    :   '+'
+    |   '-'
+    |   '*'
+    |   '/'
+    |   '%'
+    ;
+
 
 mult
     : '*'
@@ -1337,11 +1360,12 @@ mult
     ;
 
 unaryExpression
-	:	preIncrementExpression
-	|	preDecrementExpression
-	|	'+' unaryExpression
-	|	'-' unaryExpression
-	|	unaryExpressionNotPlusMinus
+//	:	preIncrementExpression
+//	|	preDecrementExpression
+//	|	'+' unaryExpression
+//	|	'-' unaryExpression
+//	|	unaryExpressionNotPlusMinus
+    :   unaryExpressionNotPlusMinus
 	;
 
 preIncrementExpression
@@ -1354,9 +1378,9 @@ preDecrementExpression
 
 unaryExpressionNotPlusMinus
 	:	postfixExpression
-	|	'~' unaryExpression
+//	|	'~' unaryExpression
 	|	'!' unaryExpression
-	|	castExpression
+//	|	castExpression
 	;
 
 //added item
@@ -1402,11 +1426,18 @@ castExpression
 
 // LEXER
 
+FUNC : 'func';
+MAIN : 'main';
+STRING : 'String';
+CONSTANT : 'constant';
+CREATE : 'create';
+
 // §3.9 Keywords
 
 ABSTRACT : 'abstract';
 ASSERT : 'assert';
-BOOLEAN : 'boolean';
+BOOL : 'bool';
+//BOOLEAN : 'boolean';
 BREAK : 'break';
 BYTE : 'byte';
 CASE : 'case';
