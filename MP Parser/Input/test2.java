@@ -1,12 +1,12 @@
 public class Main {
-	public static int myFunction(int x) {
+	func int myFunction(int x) {
 		int x = x+ 5 + ; //syntax error #1
 		int x = x+ 5 ++ 5; //syntax error #1
 
 		return int ; //syntax error #2
 	}
 
-	public static float myFunctionFloat(float x) {
+	func float myFunctionFloat(float x) {
 		float fTest = (x * 50) + (x * 15)); //syntax error #3
 		
 		return fTest * 50 (); //syntax error #4

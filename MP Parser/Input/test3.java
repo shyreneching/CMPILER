@@ -14,7 +14,7 @@ public class Main {
 		if(x = 4)  //syntax error #4 
 		{
 			
-			System.out.println(x is a very huge number); //syntax error #5
+			System.out.println("x is a very huge number"); //syntax error #5
 		} 
 	}
 

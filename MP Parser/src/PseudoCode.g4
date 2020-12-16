@@ -766,6 +766,8 @@ statementWithoutTrailingSubstatement
 	|	synchronizedStatement
 	|	throwStatement
 	|	tryStatement
+//Added item
+	|   localVariableDeclaration
 	;
 
 emptyStatement
@@ -863,7 +865,8 @@ forStatementNoShortIf
 	;
 
 pseudoForStatement
-    :'for' forInit? 'up to' literal '{'statement '}'
+    :'for' forInit 'up to' additiveExpression '{'statement '}'
+    |'for' forInit 'down to' additiveExpression '{'statement '}'
     ;
 
 basicForStatement
@@ -881,7 +884,8 @@ forInit
 	;
 
 forinitializer
-    :	variableModifier* unannType variableDeclaratorId customAssignError
+    :	unannType? variableDeclaratorId customAssignError
+    |	Identifier
     ;
 
 customAssignError
@@ -1355,6 +1359,7 @@ unaryExpressionNotPlusMinus
 	|	castExpression
 	;
 
+//added item
 postfixExpressionInc
 	:		primary
 		|	expressionName
@@ -1367,7 +1372,7 @@ postfixExpressionInc
 postfixExpression
 	:		primary
 		|	expressionName
-
+// Deleted iteme
 //		(	postIncrementExpression_lf_postfixExpression
 //		|	postDecrementExpression_lf_postfixExpression
 //		)*
@@ -1449,6 +1454,10 @@ TRY : 'try';
 VOID : 'void';
 VOLATILE : 'volatile';
 WHILE : 'while';
+
+//Added Item
+UPTO : 'up to';
+DOWNTO : 'down to';
 
 // §3.10.1 Integer Literals
 
