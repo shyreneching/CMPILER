@@ -20,9 +20,9 @@ public class Main {
             lexer.addErrorListener(ErrorListener.INSTANCE);
             parser.addErrorListener(ErrorListener.INSTANCE);
             parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
-            for (PredictionMode c : PredictionMode.values())
-                System.out.println(c);
-            //parser.setErrorHandler(new ErrorRecovery());
+//            for (PredictionMode c : PredictionMode.values())
+////                System.out.println(c);
+//            parser.setErrorHandler(new ErrorRecovery());
 //            parser.addErrorListener(new ErrorListener());
 
             parser.compilationUnit();

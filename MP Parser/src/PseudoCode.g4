@@ -815,123 +815,96 @@ statementExpression
 
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
-    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier)*)? ')' {notifyErrorListeners("lacking '"'/'+' symbol in print statement");}
+    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking quotation mark or '+' symbol in print statement");}
     ;
-
-
 
 scanInvocation
     :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
     ;
-
 ifThenStatement
 //	:	'if' '(' expression ')' statement
     : 'if' '(' onlyConditionalExpression ')' 'then' block ('else' 'if' '(' onlyConditionalExpression ')' 'then' block)* ('else' 'then' block)?
 	;
-
 ifThenElseStatement
 	:	'if' '(' expression ')' statementNoShortIf 'else' statement
 	;
-
 ifThenElseStatementNoShortIf
 	:	'if' '(' expression ')' statementNoShortIf 'else' statementNoShortIf
 	;
-
 assertStatement
 	:	'assert' expression ';'
 	|	'assert' expression ':' expression ';'
 	;
-
 switchStatement
 //	:	'switch' '(' expression ')' switchBlock
     :   'switch' '(' Identifier ')' switchBlock
 	;
-
 switchBlock
 	:	'{' switchBlockStatementGroup* switchLabel* '}'
 	;
-
 switchBlockStatementGroup
 	:	switchLabels blockStatements
 	;
-
 switchLabels
 	:	switchLabel switchLabel*
 	;
-
 switchLabel
 	:	'case' constantExpression ':'
 //	|	'case' enumConstantName ':'
 	|	'default' ':'
 	;
-
 enumConstantName
 	:	Identifier
 	;
-
 whileStatement
 //	:	'while' '(' expression ')' statement
     :	'while' Identifier 'up to' additiveExpression block
     |   'while' Identifier 'down to' additiveExpression block
 	;
-
 whileStatementNoShortIf
 	:	'while' '(' expression ')' statementNoShortIf
 	;
-
 doStatement
 //	:	'do' statement 'while' '(' expression ')' ';'
     :   'do' block 'while' Identifier 'up to' additiveExpression
     |   'do' block 'while' Identifier 'down to' additiveExpression
 	;
-
 forStatement
 //	:	basicForStatement
 //	|	enhancedForStatement
 	:   pseudoForStatement
 ;
-
-
 forStatementNoShortIf
 //	:	basicForStatementNoShortIf
 //	|	enhancedForStatementNoShortIf
 	:   pseudoForStatement
 	;
-
 pseudoForStatement
     :'for' forInit 'up to' additiveExpression block
     |'for' forInit 'down to' additiveExpression block
     ;
-
 //basicForStatement
 //	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
 //	;
-
-
 //basicForStatementNoShortIf
 //	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
 //	;
-
 forInit
     :
 //	:	statementExpressionList
 	|	forinitializer
 	;
-
 forinitializer
     :	unannType? variableDeclaratorId customAssignError
     |	Identifier
     ;
-
 customAssignError
     :	'=' variableInitializer
     |   {notifyErrorListeners("did not find assignment operator");}
     ;
-
 //forUpdate
 //	:	statementExpressionList
 //	;
-
 //statementExpressionList
 //	:	statementExpression (',' statementExpression)*
 //	;
@@ -943,75 +916,58 @@ customAssignError
 //enhancedForStatementNoShortIf
 //	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
 //	;
-
 breakStatement
 //	:	'break' Identifier? ';'
     :   'break' ';'
 	;
-
 continueStatement
 //	:	'continue' Identifier? ';'
 	:	'continue' ';'
 	;
-
 returnStatement
 	:	'return' expression? ';'
 	;
-
 throwStatement
 	:	'throw' expression ';'
 	;
-
 synchronizedStatement
 	:	'synchronized' '(' expression ')' block
 	;
-
 tryStatement
 	:	'try' block catches
 	|	'try' block catches? finally_
 	|	tryWithResourcesStatement
 	;
-
 catches
 	:	catchClause catchClause*
 	;
-
 catchClause
 	:	'catch' '(' catchFormalParameter ')' block
 	;
-
 catchFormalParameter
 	:	variableModifier* catchType variableDeclaratorId
 	;
-
 catchType
 	:	unannClassType ('|' classType)*
 	;
-
 finally_
 	:	'finally' block
 	;
-
 tryWithResourcesStatement
 	:	'try' resourceSpecification block catches? finally_?
 	;
-
 resourceSpecification
 	:	'(' resourceList ';'? ')'
 	;
-
 resourceList
 	:	resource (';' resource)*
 	;
-
 resource
 	:	variableModifier* unannType variableDeclaratorId '=' expression
 	;
-
 /*
  * Productions from §15 (Expressions)
  */
-
 primary
 	:	(	primaryNoNewArray_lfno_primary
 //		|	arrayCreationExpression
@@ -1019,7 +975,6 @@ primary
 //		(	primaryNoNewArray_lf_primary
 //		)*
 	;
-
 primaryNoNewArray
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -1033,11 +988,9 @@ primaryNoNewArray
 	|	methodInvocation
 	|	methodReference
 	;
-
 primaryNoNewArray_lf_arrayAccess
 	:
 	;
-
 primaryNoNewArray_lfno_arrayAccess
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -1050,7 +1003,6 @@ primaryNoNewArray_lfno_arrayAccess
 	|	methodInvocation
 	|	methodReference
 	;
-
 primaryNoNewArray_lf_primary
 	:	classInstanceCreationExpression_lf_primary
 	|	fieldAccess_lf_primary
@@ -1058,18 +1010,15 @@ primaryNoNewArray_lf_primary
 	|	methodInvocation_lf_primary
 	|	methodReference_lf_primary
 	;
-
 primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary
 	:
 	;
-
 primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary
 	:	classInstanceCreationExpression_lf_primary
 	|	fieldAccess_lf_primary
 	|	methodInvocation_lf_primary
 	|	methodReference_lf_primary
 	;
-
 primaryNoNewArray_lfno_primary
 	:	literal
 //	|	typeName ('[' ']')* '.' 'class'
@@ -1084,11 +1033,9 @@ primaryNoNewArray_lfno_primary
 	|	methodInvocation_lfno_primary
 //	|	methodReference_lfno_primary
 	;
-
 primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary
 	:
 	;
-
 primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -1102,42 +1049,34 @@ primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	|	methodInvocation_lfno_primary
 	|	methodReference_lfno_primary
 	;
-
 classInstanceCreationExpression
 	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	primary '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 classInstanceCreationExpression_lf_primary
 	:	'.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 classInstanceCreationExpression_lfno_primary
 	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 typeArgumentsOrDiamond
 	:	typeArguments
 	|	'<' '>'
 	;
-
 fieldAccess
 	:	primary '.' Identifier
 	|	'super' '.' Identifier
 	|	typeName '.' 'super' '.' Identifier
 	;
-
 fieldAccess_lf_primary
 	:	'.' Identifier
 	;
-
 fieldAccess_lfno_primary
 	:	'super' '.' Identifier
 	|	typeName '.' 'super' '.' Identifier
 	;
-
 arrayAccess
 	:	(	expressionName '[' expression ']'
 		|	primaryNoNewArray_lfno_arrayAccess '[' expression ']'
@@ -1145,19 +1084,16 @@ arrayAccess
 		(	primaryNoNewArray_lf_arrayAccess '[' expression ']'
 		)*
 	;
-
 arrayAccess_lf_primary
 	:	primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary '[' expression ']'
 		(primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary '[' expression ']')*
 	;
-
 arrayAccess_lfno_primary
 	:	(	expressionName '[' expression ']'
 //		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
 		)
 //		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
-
 methodInvocation
 	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("redundant parentheses");}
 	|   methodName '(' argumentList? ')'
@@ -1167,11 +1103,9 @@ methodInvocation
 	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 methodInvocation_lf_primary
 	:	'.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 methodInvocation_lfno_primary
 	:	methodName '(' argumentList? ')'
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1179,11 +1113,9 @@ methodInvocation_lfno_primary
 //	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 argumentList
 	:	expression (',' expression)*
 	;
-
 methodReference
 	:	expressionName '::' typeArguments? Identifier
 	|	referenceType '::' typeArguments? Identifier
@@ -1193,11 +1125,9 @@ methodReference
 	|	classType '::' typeArguments? 'new'
 	|	arrayType '::' 'new'
 	;
-
 methodReference_lf_primary
 	:	'::' typeArguments? Identifier
 	;
-
 methodReference_lfno_primary
 	:	expressionName '::' typeArguments? Identifier
 	|	referenceType '::' typeArguments? Identifier
@@ -1206,69 +1136,68 @@ methodReference_lfno_primary
 	|	classType '::' typeArguments? 'new'
 	|	arrayType '::' 'new'
 	;
-
 arrayCreationExpression
 	:	'new' primitiveType dimExprs dims?
 	|	'new' classOrInterfaceType dimExprs dims?
 	|	'new' primitiveType dims arrayInitializer
 	|	'new' classOrInterfaceType dims arrayInitializer
 	;
-
 dimExprs
 	:	dimExpr dimExpr*
 	;
-
 dimExpr
 	:	annotation* '[' expression ']'
 	;
-
 // See Expressions
-
-
 constantExpression
 	:	expression
 	;
-
 expression
 //	:	lambdaExpression
 //	|	assignmentExpression
-    :   assignmentExpression
+    :   assignmentExpression errorParenthesis
+//    |   assignmentExpression '(' ')' {notifyErrorListeners("redundant paranthesis");}
+//    |   assignmentExpression ')'  {notifyErrorListeners("uneven paranthesis, missing '('");}
+//    |   assignmentExpression '('  {notifyErrorListeners("uneven paranthesis, missing ')'");}
+    |   '(' ')' assignmentExpression  {notifyErrorListeners("redundant paranthesis");}
+    |   ')' assignmentExpression  {notifyErrorListeners("uneven paranthesis, lacking '('");}
+    |   '('  assignmentExpression   {notifyErrorListeners("uneven paranthesis, lacking ')'");}
+	;
+
+errorParenthesis
+    :
+    |    '(' ')' {notifyErrorListeners("redundant paranthesis");}
+    |    ')'  {notifyErrorListeners("uneven paranthesis, lacking '('");}
+    |    '('  {notifyErrorListeners("uneven paranthesis, lacking ')'");}
 	;
 
 lambdaExpression
 	:	lambdaParameters '->' lambdaBody
 	;
-
 lambdaParameters
 	:	Identifier
 	|	'(' formalParameterList? ')'
 	|	'(' inferredFormalParameterList ')'
 	;
-
 inferredFormalParameterList
 	:	Identifier (',' Identifier)*
 	;
-
 lambdaBody
 	:	expression
 	|	block
 	;
-
 assignmentExpression
 	:	conditionalExpression
 //	|	assignment
 	;
-
 assignment
 	:	leftHandSide assignmentOperator expression
 	;
-
 leftHandSide
 	:	expressionName
 	|	fieldAccess
 	|	arrayAccess
 	;
-
 assignmentOperator
 	:	'='
 	|	'*='
@@ -1283,36 +1212,29 @@ assignmentOperator
 	|	'^='
 	|	'|='
 	;
-
 conditionalExpression
 	:	conditionalOrExpression
 //	|	conditionalOrExpression '?' expression ':' conditionalExpression
 	;
-
 onlyConditionalExpression
     : Identifier | BooleanLiteral | onlyConditionalOrExpression
     ;
-
 conditionalOrExpression
 	:	conditionalAndExpression
 	|	conditionalOrExpression '||' conditionalAndExpression
 	;
-
 onlyConditionalOrExpression
 	:	onlyConditionalAndExpression
 	|	onlyConditionalOrExpression '||' onlyConditionalAndExpression
 	;
-
 conditionalAndExpression
 	:	inclusiveOrExpression
 	|	conditionalAndExpression '&&' inclusiveOrExpression
 	;
-
 onlyConditionalAndExpression
 	:	onlyEqualityExpression
 	|	onlyConditionalAndExpression '&&' onlyEqualityExpression
 	;
-
 inclusiveOrExpression
 	:	exclusiveOrExpression
 //	|	inclusiveOrExpression (|' exclusiveOrExpression

@@ -2511,6 +2511,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterErrorParenthesis(PseudoCodeParser.ErrorParenthesisContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitErrorParenthesis(PseudoCodeParser.ErrorParenthesisContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLambdaExpression(PseudoCodeParser.LambdaExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}

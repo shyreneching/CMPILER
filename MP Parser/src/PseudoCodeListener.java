@@ -2087,6 +2087,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitExpression(PseudoCodeParser.ExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#errorParenthesis}.
+	 * @param ctx the parse tree
+	 */
+	void enterErrorParenthesis(PseudoCodeParser.ErrorParenthesisContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#errorParenthesis}.
+	 * @param ctx the parse tree
+	 */
+	void exitErrorParenthesis(PseudoCodeParser.ErrorParenthesisContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#lambdaExpression}.
 	 * @param ctx the parse tree
 	 */

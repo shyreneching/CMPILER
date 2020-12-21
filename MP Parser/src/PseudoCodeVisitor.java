@@ -1258,6 +1258,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(PseudoCodeParser.ExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#errorParenthesis}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitErrorParenthesis(PseudoCodeParser.ErrorParenthesisContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#lambdaExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

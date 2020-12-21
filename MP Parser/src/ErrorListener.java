@@ -65,7 +65,7 @@ public class ErrorListener extends BaseErrorListener {
             } else if (msg.contains("missing {StringLiteral, Identifier}")){
                 msg = "missing argument before '"+temp[1] + "'";
             } else {
-                msg = "looking for '" + temp[1] +"' but found " + temp[3];
+//                msg = "looking for '" + temp[1] +"' but found " + temp[3];
             }
         }
         else if(msg.contains("mismatched input")) {
@@ -125,10 +125,10 @@ public class ErrorListener extends BaseErrorListener {
     public String toString() {
         return errorMsg;
     }
-    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
-        System.err.println(ambigAlts);
-        System.err.println(configs);
-    }
+//    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
+//        System.err.println(ambigAlts);
+//        System.err.println(configs);
+//    }
 //
 //    @Override public void reportAttemptingFullContext(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, java.util.BitSet conflictingAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) { /* compiled code */ }
 //
