@@ -732,6 +732,7 @@ block
 
 blockStatements
 	:	blockStatement blockStatement*
+//	|	blockStatement* returnStatement
 	;
 
 blockStatement
@@ -814,7 +815,10 @@ statementExpression
 
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
+    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier)*)? ')' {notifyErrorListeners("lacking '"'/'+' symbol in print statement");}
     ;
+
+
 
 scanInvocation
     :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
@@ -882,9 +886,9 @@ doStatement
 	;
 
 forStatement
-	:	basicForStatement
-	|	enhancedForStatement
-	|   pseudoForStatement
+//	:	basicForStatement
+//	|	enhancedForStatement
+	:   pseudoForStatement
 ;
 
 
@@ -899,14 +903,14 @@ pseudoForStatement
     |'for' forInit 'down to' additiveExpression block
     ;
 
-basicForStatement
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
-	;
+//basicForStatement
+//	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
+//	;
 
 
-basicForStatementNoShortIf
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
-	;
+//basicForStatementNoShortIf
+//	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
+//	;
 
 forInit
     :
@@ -915,7 +919,7 @@ forInit
 	;
 
 forinitializer
-    :	unannType variableDeclaratorId customAssignError
+    :	unannType? variableDeclaratorId customAssignError
     |	Identifier
     ;
 
@@ -924,21 +928,21 @@ customAssignError
     |   {notifyErrorListeners("did not find assignment operator");}
     ;
 
-forUpdate
-	:	statementExpressionList
-	;
+//forUpdate
+//	:	statementExpressionList
+//	;
 
-statementExpressionList
-	:	statementExpression (',' statementExpression)*
-	;
-
-enhancedForStatement
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statement
-	;
-
-enhancedForStatementNoShortIf
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
-	;
+//statementExpressionList
+//	:	statementExpression (',' statementExpression)*
+//	;
+//
+//enhancedForStatement
+//	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statement
+//	;
+//
+//enhancedForStatementNoShortIf
+//	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
+//	;
 
 breakStatement
 //	:	'break' Identifier? ';'
@@ -1218,6 +1222,9 @@ dimExpr
 	:	annotation* '[' expression ']'
 	;
 
+// See Expressions
+
+
 constantExpression
 	:	expression
 	;
@@ -1308,7 +1315,7 @@ onlyConditionalAndExpression
 
 inclusiveOrExpression
 	:	exclusiveOrExpression
-//	|	inclusiveOrExpression '|' exclusiveOrExpression
+//	|	inclusiveOrExpression (|' exclusiveOrExpression
 	;
 
 exclusiveOrExpression

@@ -1,7 +1,6 @@
 
 func int myFunction(int x) {
-	int x = x+ 5 + ; //syntax error #1
-	int x = x+ 5 ++ 5; //syntax error #1
+		int add = x + 50 ++ 1; //syntax error #1
 
 	return int ; //syntax error #2
 }
@@ -12,7 +11,7 @@ func float myFunctionFloat(float x) {
 	return fTest * 50 (); //syntax error #4
 }
 
-public static void main(String[] args) {
+main() {
 	myFunction(50);
 	myFunctionFloat(50.0f);
 

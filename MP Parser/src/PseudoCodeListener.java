@@ -1,4 +1,4 @@
-// Generated from C:/Users/erwin/Desktop/CMPILER/MP-Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
+// Generated from C:/Users/ShyreneChing/Desktop/DLSU/AY 2020-2021 Term 1/CMPILER/MP/MC01/MP Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -1587,26 +1587,6 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterBasicForStatement(PseudoCodeParser.BasicForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitBasicForStatement(PseudoCodeParser.BasicForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterBasicForStatementNoShortIf(PseudoCodeParser.BasicForStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitBasicForStatementNoShortIf(PseudoCodeParser.BasicForStatementNoShortIfContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#forInit}.
 	 * @param ctx the parse tree
 	 */
@@ -1636,46 +1616,6 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#forUpdate}.
-	 * @param ctx the parse tree
-	 */
-	void enterForUpdate(PseudoCodeParser.ForUpdateContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#forUpdate}.
-	 * @param ctx the parse tree
-	 */
-	void exitForUpdate(PseudoCodeParser.ForUpdateContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#statementExpressionList}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatementExpressionList(PseudoCodeParser.StatementExpressionListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#statementExpressionList}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatementExpressionList(PseudoCodeParser.StatementExpressionListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnhancedForStatement(PseudoCodeParser.EnhancedForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnhancedForStatement(PseudoCodeParser.EnhancedForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnhancedForStatementNoShortIf(PseudoCodeParser.EnhancedForStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnhancedForStatementNoShortIf(PseudoCodeParser.EnhancedForStatementNoShortIfContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#breakStatement}.
 	 * @param ctx the parse tree

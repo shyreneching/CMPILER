@@ -1,4 +1,4 @@
-// Generated from C:/Users/erwin/Desktop/CMPILER/MP-Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
+// Generated from C:/Users/ShyreneChing/Desktop/DLSU/AY 2020-2021 Term 1/CMPILER/MP/MC01/MP Parser/MP Parser/src\PseudoCode.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -958,18 +958,6 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBasicForStatement(PseudoCodeParser.BasicForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBasicForStatementNoShortIf(PseudoCodeParser.BasicForStatementNoShortIfContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#forInit}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -987,30 +975,6 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCustomAssignError(PseudoCodeParser.CustomAssignErrorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#forUpdate}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForUpdate(PseudoCodeParser.ForUpdateContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#statementExpressionList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatementExpressionList(PseudoCodeParser.StatementExpressionListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnhancedForStatement(PseudoCodeParser.EnhancedForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnhancedForStatementNoShortIf(PseudoCodeParser.EnhancedForStatementNoShortIfContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#breakStatement}.
 	 * @param ctx the parse tree

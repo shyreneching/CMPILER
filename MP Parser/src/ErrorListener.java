@@ -1,8 +1,11 @@
 import org.antlr.v4.runtime.BaseErrorListener;
+import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class ErrorListener extends BaseErrorListener {
     public static ErrorListener INSTANCE = new ErrorListener();
@@ -31,7 +34,7 @@ public class ErrorListener extends BaseErrorListener {
         String[] unnanType = {"boolean;", "byte;", "short;", "int;", "long;", "char;", "float;", "double;", "String;", "Object;"};
         if (msg.contains("extraneous")){
             temp = msg.split("'");
-            System.out.println(temp[1]);
+//            System.out.println(temp[1]);
             if (msg.contains("'++' expecting ';'")){
                 msg = "redundant '+' in arithmetic expression";
             } else if (msg.contains("input ';' expecting")){
@@ -40,6 +43,8 @@ public class ErrorListener extends BaseErrorListener {
                 msg = "uneven parentheses, missing one '('";
             } else if(temp[1].equals("(")){
                 msg = "uneven parentheses, missing one ')'";
+            } else if (/*Arrays.stream(unnanType).anyMatch(msg::contains)*/Arrays.asList(unnanType).contains(temp[1] + ";") ){
+                msg = "no identifier found for '" + temp[1] + "' data type";
             } else {
                 msg = "irrelevant character '"+ temp[1] +"' found";
             }
@@ -57,7 +62,9 @@ public class ErrorListener extends BaseErrorListener {
             } else if (temp[1].equals("}")){
                 msg = "missing closing bracket '}'";
                 line = line - 1;
-            } else{
+            } else if (msg.contains("missing {StringLiteral, Identifier}")){
+                msg = "missing argument before '"+temp[1] + "'";
+            } else {
                 msg = "looking for '" + temp[1] +"' but found " + temp[3];
             }
         }
@@ -67,7 +74,11 @@ public class ErrorListener extends BaseErrorListener {
                 temp = msg.split("'");
                 msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
 
-            } else {
+            } else if (temp[1].equals(")")){
+                msg = "uneven parentheses, missing one '('";
+            } else if(temp[1].equals("(")){
+                msg = "uneven parentheses, missing one ')'";
+            }  else {
                 msg = "found '"+ temp[1] + "' looking for " + msg.split("expecting ")[1]+"";
             }
         }
@@ -114,9 +125,10 @@ public class ErrorListener extends BaseErrorListener {
     public String toString() {
         return errorMsg;
     }
-//    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
-//        System.out.println("Hello ambiguity");
-//    }
+    @Override public void reportAmbiguity(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, boolean exact, java.util.BitSet ambigAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) {
+        System.err.println(ambigAlts);
+        System.err.println(configs);
+    }
 //
 //    @Override public void reportAttemptingFullContext(org.antlr.v4.runtime.Parser recognizer, org.antlr.v4.runtime.dfa.DFA dfa, int startIndex, int stopIndex, java.util.BitSet conflictingAlts, org.antlr.v4.runtime.atn.ATNConfigSet configs) { /* compiled code */ }
 //
