@@ -360,6 +360,7 @@ variableDeclaratorList
 
 variableDeclarator
 	:	variableDeclaratorId ('=' variableInitializer)?
+	|   unannType ('=' variableInitializer)? {notifyErrorListeners("declaring keyword as variable name");}
 	;
 
 
