@@ -15,6 +15,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.GenericStyledArea;
@@ -25,6 +27,7 @@ import org.fxmisc.richtext.model.StyleSpansBuilder;
 import org.reactfx.collection.ListModification;
 
 import java.awt.*;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -67,7 +70,7 @@ public class ParserUI extends Application {
                     + "|(?<COMMENT>" + COMMENT_PATTERN + ")"
     );
 
-    public static void main(String[] args) {
+    public static void launchApplication(String[] args) {
         launch(args);
     }
 
@@ -158,6 +161,40 @@ public class ParserUI extends Application {
         AnchorPane.setTopAnchor(vbox, 0.0);
         AnchorPane.setLeftAnchor(vbox, 0.0);
         AnchorPane.setRightAnchor(vbox, 0.0);
+
+        parse_button.setOnMouseClicked(e -> {
+            try {
+//            CharStream input = CharStreams.fromFileName("input/test2.java");
+            CharStream input = CharStreams.fromStream(new ByteArrayInputStream(codeArea.getText().getBytes(StandardCharsets.UTF_8)));
+            PseudoCodeLexer lexer = new PseudoCodeLexer(input);
+            PseudoCodeParser parser = new PseudoCodeParser(new CommonTokenStream(lexer));
+            parser.addParseListener(new PseudoCodeBaseListener());
+            lexer.removeErrorListeners();
+            parser.removeErrorListeners();
+            lexer.addErrorListener(ErrorListener.INSTANCE);
+            parser.addErrorListener(ErrorListener.INSTANCE);
+            parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
+//            for (PredictionMode c : PredictionMode.values())
+////                System.out.println(c);
+//            parser.setErrorHandler(new ErrorRecovery());
+//            parser.addErrorListener(new ErrorListener());
+
+            parser.compilationUnit();
+            System.out.println(ErrorListener.INSTANCE.toString());
+            var outputname = "input/parser-output.txt";
+            OutputStream outStream = new FileOutputStream(outputname);
+//            for (String l: result){
+//                outStream.write(l.getBytes());
+//                outStream.write("\r\n".getBytes());
+//            }
+            outStream.write(ErrorListener.INSTANCE.toString().getBytes());
+            outStream.close();
+
+        } catch (IOException ex) {
+            //System.out.println(ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });
 
         Group root = new Group(anchorPane);
 
