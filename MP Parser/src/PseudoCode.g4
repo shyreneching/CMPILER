@@ -440,6 +440,10 @@ unannArrayType
 methodDeclaration
 //	:	methodModifier* methodHeader methodBody
     :   'func' result methodDeclarator block
+    |   'func' methodDeclarator block {notifyErrorListeners("lacking return type");}
+    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
+//    |   'func' result methodDeclarator ';'
+    |   'func' result methodDeclarator {notifyErrorListeners("lacking function body");}
 	;
 
 methodModifier
@@ -466,21 +470,33 @@ result
 	;
 
 methodDeclarator
-	:	Identifier '(' formalParameterList? ')' dims?
+//	:	Identifier '(' formalParameterList? ')' dims?
+	:	Identifier '(' formalParameterList? ')'
+	|	Identifier '(' formalParameterList? {notifyErrorListeners("no closing parenthesis");}
+	|	Identifier formalParameterList? ')' {notifyErrorListeners("no opening parenthesis");}
 	;
 
 formalParameterList
-	:	formalParameters ',' lastFormalParameter
-	|	lastFormalParameter
+//	:	formalParameters ',' lastFormalParameter
+//	|	lastFormalParameter
+    :   formalParameters
+
 	;
 
 formalParameters
 	:	formalParameter (',' formalParameter)*
-	|	receiverParameter (',' formalParameter)*
+//	|	receiverParameter (',' formalParameter)*
+    |   (formalParameter (',' formalParameter)*)? formalParameter formalParameters {notifyErrorListeners("no separator found in parameters");}
+    |   ','* ',' formalParameters {notifyErrorListeners("lacking parameter");}
+    |   formalParameters ',' ','* {notifyErrorListeners("lacking parameter");}
+    |   formalParameters ',' ',' ','* formalParameters {notifyErrorListeners("lacking parameter");}
 	;
 
 formalParameter
-	:	variableModifier* unannType variableDeclaratorId
+//	:	variableModifier* unannType variableDeclaratorId
+    :   unannType variableDeclaratorId
+    |   variableDeclaratorId {notifyErrorListeners("no specified data type");}
+    |   unannType {notifyErrorListeners("no parameter name");}
 	;
 
 variableModifier
@@ -1103,6 +1119,7 @@ arrayAccess_lfno_primary
 methodInvocation
 	:	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
 	|   methodName '(' argumentList? {notifyErrorListeners("no closing parenthesis");}
+	|   methodName argumentList? ')' {notifyErrorListeners("no opening parenthesis");}
 	|   methodName '(' argumentList? ')'
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1124,10 +1141,10 @@ methodInvocation_lfno_primary
 	;
 argumentList
 	:	expression (',' expression)*
-	|   (expression (',' expression)*)? expression argumentList {notifyErrorListeners("missing comma in parameters");}
-	|   ','* ',' argumentList {notifyErrorListeners("missing parameter");}
-	|   argumentList ',' ','* {notifyErrorListeners("missing parameter");}
-	|   argumentList ',' ',' ','* argumentList {notifyErrorListeners("missing parameter");}
+	|   (expression (',' expression)*)? expression argumentList {notifyErrorListeners("no separator found in parameters");}
+	|   ','* ',' argumentList {notifyErrorListeners("lacking parameter");}
+	|   argumentList ',' ','* {notifyErrorListeners("lacking parameter");}
+	|   argumentList ',' ',' ','* argumentList {notifyErrorListeners("lacking parameter");}
 	;
 methodReference
 	:	expressionName '::' typeArguments? Identifier
