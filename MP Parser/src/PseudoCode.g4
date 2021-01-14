@@ -834,12 +834,17 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    |   'print' '(' ((StringLiteral | ~(StringLiteral | Identifier) | Identifier) (StringLiteral | ~(StringLiteral | Identifier) | Identifier) (StringLiteral | ~(StringLiteral | Identifier) | Identifier)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    |   'print' '(' ~(StringLiteral | Identifier) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
     ;
 
-stringCharactersDeclaration
-    : StringCharacter StringCharacter*
-    ;
+//specialCharacterDeclaration
+//    : 'print' | 'scan' | 'func' | 'main' | 'String' | 'constant' | 'create'
+//    | 'then' | 'bool' | 'break' | 'byte' | 'case' | 'char' | 'class'
+//    | 'continue' | 'default' | 'do' | 'double' | 'else' | 'enum' |
+//    | IntegerLiteral | FloatingPointLiteral | BooleanLiteral | CharacterLiteral
+//    | NullLiteral | ':' | '!' | '?' | '~' | '<' | '>' | '='
+//    ;
 
 scanInvocation
     :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
@@ -1462,7 +1467,7 @@ CASE : 'case';
 CATCH : 'catch';
 CHAR : 'char';
 CLASS : 'class';
-CONST : 'const';
+//CONST : 'const';
 CONTINUE : 'continue';
 DEFAULT : 'default';
 DO : 'do';
