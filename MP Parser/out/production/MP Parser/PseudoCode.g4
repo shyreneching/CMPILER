@@ -360,6 +360,7 @@ variableDeclaratorList
 
 variableDeclarator
 	:	variableDeclaratorId ('=' variableInitializer)?
+	|   unannType ('=' variableInitializer)? {notifyErrorListeners("declaring keyword as variable name");}
 	;
 
 
@@ -816,7 +817,7 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking 'quotation mark' or '+' symbol in print statement");}
+    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking 'double quotes in print statement");}
     ;
 
 scanInvocation

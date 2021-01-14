@@ -360,6 +360,7 @@ variableDeclaratorList
 
 variableDeclarator
 	:	variableDeclaratorId ('=' variableInitializer)?
+	|   unannType ('=' variableInitializer)? {notifyErrorListeners("declaring keyword as variable name");}
 	;
 
 
@@ -748,6 +749,7 @@ localVariableDeclarationStatement
 localVariableDeclaration
 //	:	variableModifier* unannType variableDeclaratorList
     :   ('constant')? unannType dims? variableDeclaratorList
+    |   Identifier unannType dims? variableDeclaratorList {notifyErrorListeners("identifier found before data type in the declaration");}
 	;
 
 statement
