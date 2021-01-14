@@ -15,8 +15,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.ErrorListener;
+import model.PseudoCodeBaseListener;
+import model.PseudoCodeLexer;
+import model.PseudoCodeParser;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.atn.PredictionMode;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.GenericStyledArea;
@@ -29,10 +35,12 @@ import org.reactfx.collection.ListModification;
 import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,7 +89,7 @@ public class ParserUI extends Application {
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight();
         double scene_width = width*0.5;
-        double scene_height = height*0.65;
+        double scene_height = height*0.75;
         boolean wrap = true;
 
         //Parent root = FXMLLoader.load(getClass().getResource("ParserUIFXML.fxml"));
@@ -181,18 +189,19 @@ public class ParserUI extends Application {
 
             parser.compilationUnit();
             System.out.println(ErrorListener.INSTANCE.toString());
-            var outputname = "input/parser-output.txt";
-            OutputStream outStream = new FileOutputStream(outputname);
-//            for (String l: result){
-//                outStream.write(l.getBytes());
-//                outStream.write("\r\n".getBytes());
-//            }
-            outStream.write(ErrorListener.INSTANCE.toString().getBytes());
-            outStream.close();
+//            var outputname = "input/parser-output.txt";
+//            OutputStream outStream = new FileOutputStream(outputname);
+////            for (String l: result){
+////                outStream.write(l.getBytes());
+////                outStream.write("\r\n".getBytes());
+////            }
+//            outStream.write(ErrorListener.INSTANCE.toString().getBytes());
+//            outStream.close();
 
+            output_textArea.setText(ErrorListener.INSTANCE.toString());
         } catch (IOException ex) {
             //System.out.println(ex);
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         });
 
