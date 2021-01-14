@@ -122,7 +122,7 @@ public class ParserUI extends Application {
             }
         });
 
-        codeArea.replaceText(0, 0, "int x = 0;");
+        codeArea.replaceText(0, 0, "main(){\n\n" + "}");
 
         VirtualizedScrollPane vsp = new VirtualizedScrollPane(codeArea);
         StackPane stack = new StackPane();
@@ -196,6 +196,7 @@ public class ParserUI extends Application {
 //            outStream.close();
 
             output_textArea.setText(ErrorListener.INSTANCE.toString());
+            output_textArea.setMouseTransparent(false);
         } catch (IOException ex) {
             //System.out.println(ex);
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
