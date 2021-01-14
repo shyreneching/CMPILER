@@ -115,6 +115,7 @@ ELLIPSIS=114
 WS=115
 COMMENT=116
 LINE_COMMENT=117
+StringCharacter=118
 'print'=1
 'scan'=2
 'func'=3

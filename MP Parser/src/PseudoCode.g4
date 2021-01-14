@@ -441,7 +441,7 @@ methodDeclaration
 //	:	methodModifier* methodHeader methodBody
     :   'func' result methodDeclarator block
     |   'func' methodDeclarator block {notifyErrorListeners("lacking return type");}
-    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
+//    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
 //    |   'func' result methodDeclarator ';'
     |   'func' result methodDeclarator {notifyErrorListeners("lacking function body");}
 	;
@@ -834,7 +834,11 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | StringCharacters) (StringLiteral | StringCharacters) (StringLiteral | StringCharacters)*) ')' {notifyErrorListeners("lacking 'double quotes in print statement");}
+    |   'print' '(' ((StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    ;
+
+stringCharactersDeclaration
+    : StringCharacter StringCharacter*
     ;
 
 scanInvocation

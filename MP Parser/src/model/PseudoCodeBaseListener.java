@@ -1708,6 +1708,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterScanInvocation(PseudoCodeParser.ScanInvocationContext ctx) { }
 	/**
 	 * {@inheritDoc}

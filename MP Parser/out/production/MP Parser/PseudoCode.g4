@@ -440,6 +440,10 @@ unannArrayType
 methodDeclaration
 //	:	methodModifier* methodHeader methodBody
     :   'func' result methodDeclarator block
+    |   'func' methodDeclarator block {notifyErrorListeners("lacking return type");}
+    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
+//    |   'func' result methodDeclarator ';'
+    |   'func' result methodDeclarator {notifyErrorListeners("lacking function body");}
 	;
 
 methodModifier
@@ -466,21 +470,33 @@ result
 	;
 
 methodDeclarator
-	:	Identifier '(' formalParameterList? ')' dims?
+//	:	Identifier '(' formalParameterList? ')' dims?
+	:	Identifier '(' formalParameterList? ')'
+	|	Identifier '(' formalParameterList? {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+	|	Identifier formalParameterList? ')' {notifyErrorListeners("uneven parenthesis, lacking '('");}
 	;
 
 formalParameterList
-	:	formalParameters ',' lastFormalParameter
-	|	lastFormalParameter
+//	:	formalParameters ',' lastFormalParameter
+//	|	lastFormalParameter
+    :   formalParameters
+
 	;
 
 formalParameters
 	:	formalParameter (',' formalParameter)*
-	|	receiverParameter (',' formalParameter)*
+//	|	receiverParameter (',' formalParameter)*
+    |   (formalParameter (',' formalParameter)*)? formalParameter formalParameters {notifyErrorListeners("no separator found in parameters");}
+    |   ','* ',' formalParameters {notifyErrorListeners("lacking parameter");}
+    |   formalParameters ',' ','* {notifyErrorListeners("lacking parameter");}
+    |   formalParameters ',' ',' ','* formalParameters {notifyErrorListeners("lacking parameter");}
 	;
 
 formalParameter
-	:	variableModifier* unannType variableDeclaratorId
+//	:	variableModifier* unannType variableDeclaratorId
+    :   unannType variableDeclaratorId
+    |   variableDeclaratorId {notifyErrorListeners("no specified data type");}
+    |   unannType {notifyErrorListeners("no parameter name");}
 	;
 
 variableModifier
@@ -818,7 +834,11 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking 'double quotes in print statement");}
+    |   'print' '(' ((StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    ;
+
+stringCharactersDeclaration
+    : StringCharacter StringCharacter*
     ;
 
 scanInvocation
@@ -863,6 +883,7 @@ whileStatement
 //	:	'while' '(' expression ')' statement
     :	'while' Identifier 'up to' additiveExpression block
     |   'while' Identifier 'down to' additiveExpression block
+    |   'while' Identifier (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'while loop' should contain 'up to' or 'down to' keyword");}
 	;
 whileStatementNoShortIf
 	:	'while' '(' expression ')' statementNoShortIf
@@ -871,6 +892,7 @@ doStatement
 //	:	'do' statement 'while' '(' expression ')' ';'
     :   'do' block 'while' Identifier 'up to' additiveExpression
     |   'do' block 'while' Identifier 'down to' additiveExpression
+    |   'do' block 'while' Identifier (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression {notifyErrorListeners("wrong syntax for 'do while loop' should contain 'up to' or 'down to' keyword");}
 	;
 forStatement
 //	:	basicForStatement
@@ -883,8 +905,9 @@ forStatementNoShortIf
 	:   pseudoForStatement
 	;
 pseudoForStatement
-    :'for' forInit 'up to' additiveExpression block
-    |'for' forInit 'down to' additiveExpression block
+    :   'for' forInit 'up to' additiveExpression block
+    |   'for' forInit 'down to' additiveExpression block
+    |   'for' forInit (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'for loop' should contain 'up to' or 'down to' keyword");}
     ;
 //basicForStatement
 //	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
@@ -1099,7 +1122,8 @@ arrayAccess_lfno_primary
 	;
 methodInvocation
 	:	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
-	|   methodName '(' argumentList? {notifyErrorListeners("no closing parenthesis");}
+	|   methodName '(' argumentList? {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+	|   methodName argumentList? ')' {notifyErrorListeners("uneven parenthesis, lacking '('");}
 	|   methodName '(' argumentList? ')'
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1121,10 +1145,10 @@ methodInvocation_lfno_primary
 	;
 argumentList
 	:	expression (',' expression)*
-	|   (expression (',' expression)*)? expression argumentList {notifyErrorListeners("missing comma in parameters");}
-	|   ','* ',' argumentList {notifyErrorListeners("missing parameter");}
-	|   argumentList ',' ','* {notifyErrorListeners("missing parameter");}
-	|   argumentList ',' ',' ','* argumentList {notifyErrorListeners("missing parameter");}
+	|   (expression (',' expression)*)? expression argumentList {notifyErrorListeners("no separator found in parameters");}
+	|   ','* ',' argumentList {notifyErrorListeners("lacking parameter");}
+	|   argumentList ',' ','* {notifyErrorListeners("lacking parameter");}
+	|   argumentList ',' ',' ','* argumentList {notifyErrorListeners("lacking parameter");}
 	;
 methodReference
 	:	expressionName '::' typeArguments? Identifier

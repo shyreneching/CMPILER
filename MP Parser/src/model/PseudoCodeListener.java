@@ -1418,6 +1418,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#stringCharactersDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#stringCharactersDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
 	 * @param ctx the parse tree
 	 */
