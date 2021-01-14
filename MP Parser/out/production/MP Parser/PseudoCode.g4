@@ -441,7 +441,7 @@ methodDeclaration
 //	:	methodModifier* methodHeader methodBody
     :   'func' result methodDeclarator block
     |   'func' methodDeclarator block {notifyErrorListeners("lacking return type");}
-    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
+//    |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
 //    |   'func' result methodDeclarator ';'
     |   'func' result methodDeclarator {notifyErrorListeners("lacking function body");}
 	;
@@ -1121,10 +1121,11 @@ arrayAccess_lfno_primary
 //		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
 methodInvocation
-	:	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
+    :   methodName '(' argumentList? ')'
+	|	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
 	|   methodName '(' argumentList? {notifyErrorListeners("uneven parenthesis, lacking ')'");}
 	|   methodName argumentList? ')' {notifyErrorListeners("uneven parenthesis, lacking '('");}
-	|   methodName '(' argumentList? ')'
+
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	primary '.' typeArguments? Identifier '(' argumentList? ')'
