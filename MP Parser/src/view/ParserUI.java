@@ -15,10 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.ErrorListener;
-import model.PseudoCodeBaseListener;
-import model.PseudoCodeLexer;
-import model.PseudoCodeParser;
+import model.*;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -185,7 +182,7 @@ public class ParserUI extends Application {
 //            for (PredictionMode c : PredictionMode.values())
 ////                System.out.println(c);
 //            parser.setErrorHandler(new ErrorRecovery());
-//            parser.addErrorListener(new ErrorListener());
+            parser.addErrorListener(new ErrorListener());
 
             parser.compilationUnit();
             System.out.println(ErrorListener.INSTANCE.toString());

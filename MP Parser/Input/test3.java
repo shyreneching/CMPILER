@@ -6,7 +6,7 @@ func void testOne() {
 	
 	for int i up to 6 { //syntax error #1
 		print("Petmalu " +x+); //syntax error #2
-	
+		if(x + 3 +){}
 	//syntax error #3 (missing curly brace)
 }
 
