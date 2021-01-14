@@ -1334,11 +1334,17 @@ additiveExpression
 
 additiveExpressionfactored
     : arithmetic arithmetic (arithmetic | INC | DEC)* multiplicativeExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
-    | INC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
-    | DEC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | INC (arithmetic | INC | DEC)+ multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | DEC (arithmetic | INC | DEC)+ multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | INC multiplicativeExpression {notifyErrorListeners("redundant '+' operator symbol found");}
+    | DEC multiplicativeExpression {notifyErrorListeners("redundant '-' operator symbol found");}
+    | '**' multiplicativeExpression {notifyErrorListeners("redundant '*' operator symbol found");}
+    | '//' multiplicativeExpression {notifyErrorListeners("redundant '/' operator symbol found");}
+    | '%%' multiplicativeExpression {notifyErrorListeners("redundant '%' operator symbol found");}
 //    | '--' '-'* multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
     | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
     | addminus multiplicativeExpression
+//    | Identifier {notifyErrorListeners("no operators found");}
     ;
 
 
@@ -1411,6 +1417,8 @@ postfixExpressionInc
 postfixExpression
 	:		primary
 		|	expressionName
+		| primary expressionName {notifyErrorListeners("no operators found");}
+        | expressionName primary {notifyErrorListeners("no operators found");}
 // Deleted iteme
 //		(	postIncrementExpression_lf_postfixExpression
 //		|	postDecrementExpression_lf_postfixExpression
