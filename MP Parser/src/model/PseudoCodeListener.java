@@ -1418,16 +1418,6 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 */
 	void exitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PseudoCodeParser#stringCharactersDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PseudoCodeParser#stringCharactersDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
 	 * @param ctx the parse tree
 	 */
@@ -1597,6 +1587,16 @@ public interface PseudoCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PseudoCodeParser#forheader}.
+	 * @param ctx the parse tree
+	 */
+	void enterForheader(PseudoCodeParser.ForheaderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PseudoCodeParser#forheader}.
+	 * @param ctx the parse tree
+	 */
+	void exitForheader(PseudoCodeParser.ForheaderContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PseudoCodeParser#forInit}.
 	 * @param ctx the parse tree

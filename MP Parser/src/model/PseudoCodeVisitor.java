@@ -857,12 +857,6 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrintInvocation(PseudoCodeParser.PrintInvocationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PseudoCodeParser#stringCharactersDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#scanInvocation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -964,6 +958,12 @@ public interface PseudoCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PseudoCodeParser#forheader}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForheader(PseudoCodeParser.ForheaderContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PseudoCodeParser#forInit}.
 	 * @param ctx the parse tree

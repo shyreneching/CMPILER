@@ -1708,18 +1708,6 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStringCharactersDeclaration(PseudoCodeParser.StringCharactersDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterScanInvocation(PseudoCodeParser.ScanInvocationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1919,6 +1907,18 @@ public class PseudoCodeBaseListener implements PseudoCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPseudoForStatement(PseudoCodeParser.PseudoForStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForheader(PseudoCodeParser.ForheaderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForheader(PseudoCodeParser.ForheaderContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -834,12 +834,17 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration) (StringLiteral | stringCharactersDeclaration)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    |   'print' '(' ((StringLiteral | ~(StringLiteral | Identifier | ')') | Identifier) (StringLiteral | ~(StringLiteral | Identifier | ')') | Identifier) (StringLiteral | ~(StringLiteral | Identifier | ')') | Identifier)*) ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
+    |   'print' '(' ~(StringLiteral | Identifier | ')') ')' {notifyErrorListeners("lacking 'double quotes' in print statement");}
     ;
 
-stringCharactersDeclaration
-    : StringCharacter StringCharacter*
-    ;
+//specialCharacterDeclaration
+//    : 'print' | 'scan' | 'func' | 'main' | 'String' | 'constant' | 'create'
+//    | 'then' | 'bool' | 'break' | 'byte' | 'case' | 'char' | 'class'
+//    | 'continue' | 'default' | 'do' | 'double' | 'else' | 'enum' |
+//    | IntegerLiteral | FloatingPointLiteral | BooleanLiteral | CharacterLiteral
+//    | NullLiteral | ':' | '!' | '?' | '~' | '<' | '>' | '='
+//    ;
 
 scanInvocation
     :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
@@ -905,9 +910,16 @@ forStatementNoShortIf
 	:   pseudoForStatement
 	;
 pseudoForStatement
-    :   'for' forInit 'up to' additiveExpression block
-    |   'for' forInit 'down to' additiveExpression block
-    |   'for' forInit (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'for loop' should contain 'up to' or 'down to' keyword");}
+    :   forheader block
+//    :   'for' forInit 'up to' additiveExpression block
+//    |   'for' forInit 'down to' additiveExpression block
+//    |   'for' forInit (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'for loop' should contain 'up to' or 'down to' keyword");}
+    ;
+
+forheader
+    : 'for' forInit 'up to' additiveExpression
+    | 'for' forInit 'down to' additiveExpression
+    | 'for' forInit (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression {notifyErrorListeners("wrong syntax for 'for loop' should contain 'up to' or 'down to' keyword");}
     ;
 //basicForStatement
 //	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
@@ -1197,6 +1209,7 @@ expression
     |   '(' ')' assignmentExpression  {notifyErrorListeners("redundant parenthesis");}
     |   ')' assignmentExpression  {notifyErrorListeners("uneven parenthesis, lacking '('");}
     |   '('  assignmentExpression   {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+    |   unaryExpression unaryExpression  {notifyErrorListeners("no operators found");}
 	;
 
 errorParenthesis
@@ -1340,7 +1353,7 @@ additiveExpressionfactored
     | DEC multiplicativeExpression {notifyErrorListeners("redundant '-' operator symbol found");}
     | '**' multiplicativeExpression {notifyErrorListeners("redundant '*' operator symbol found");}
     | '//' multiplicativeExpression {notifyErrorListeners("redundant '/' operator symbol found");}
-    | '%%' multiplicativeExpression {notifyErrorListeners("redundant '%%' operator symbol found");}
+    | '%%' multiplicativeExpression {notifyErrorListeners("redundant '%' operator symbol found");}
 //    | '--' '-'* multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
     | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
     | addminus multiplicativeExpression
@@ -1417,8 +1430,8 @@ postfixExpressionInc
 postfixExpression
 	:		primary
 		|	expressionName
-		| primary expressionName {notifyErrorListeners("no operators found");}
-        | expressionName primary {notifyErrorListeners("no operators found");}
+//		| primary expressionName {notifyErrorListeners("no operators found");}
+//        | expressionName primary {notifyErrorListeners("no operators found");}
 // Deleted iteme
 //		(	postIncrementExpression_lf_postfixExpression
 //		|	postDecrementExpression_lf_postfixExpression
@@ -1470,7 +1483,7 @@ CASE : 'case';
 CATCH : 'catch';
 CHAR : 'char';
 CLASS : 'class';
-CONST : 'const';
+//CONST : 'const';
 CONTINUE : 'continue';
 DEFAULT : 'default';
 DO : 'do';
@@ -1841,6 +1854,8 @@ MOD_ASSIGN : '%=' ;
 LSHIFT_ASSIGN : '<<=' ;
 RSHIFT_ASSIGN : '>>=' ;
 URSHIFT_ASSIGN : '>>>=' ;
+
+
 
 // §3.8 Identifiers (must appear after all keywords in the grammar)
 
