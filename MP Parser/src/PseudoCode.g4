@@ -472,8 +472,8 @@ result
 methodDeclarator
 //	:	Identifier '(' formalParameterList? ')' dims?
 	:	Identifier '(' formalParameterList? ')'
-	|	Identifier '(' formalParameterList? {notifyErrorListeners("no closing parenthesis");}
-	|	Identifier formalParameterList? ')' {notifyErrorListeners("no opening parenthesis");}
+	|	Identifier '(' formalParameterList? {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+	|	Identifier formalParameterList? ')' {notifyErrorListeners("uneven parenthesis, lacking '('");}
 	;
 
 formalParameterList
@@ -834,7 +834,7 @@ statementExpression
 printInvocation
     :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
     |   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? '+'')' {notifyErrorListeners("additional ‘+’ sign at end of print");}
-    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking 'double quotes in print statement");}
+    |   'print' '(' ((StringLiteral | StringCharacters) (StringLiteral | StringCharacters) (StringLiteral | StringCharacters)*) ')' {notifyErrorListeners("lacking 'double quotes in print statement");}
     ;
 
 scanInvocation
@@ -1115,8 +1115,8 @@ arrayAccess_lfno_primary
 	;
 methodInvocation
 	:	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
-	|   methodName '(' argumentList? {notifyErrorListeners("no closing parenthesis");}
-	|   methodName argumentList? ')' {notifyErrorListeners("no opening parenthesis");}
+	|   methodName '(' argumentList? {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+	|   methodName argumentList? ')' {notifyErrorListeners("uneven parenthesis, lacking '('");}
 	|   methodName '(' argumentList? ')'
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
