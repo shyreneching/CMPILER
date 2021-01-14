@@ -863,6 +863,7 @@ whileStatement
 //	:	'while' '(' expression ')' statement
     :	'while' Identifier 'up to' additiveExpression block
     |   'while' Identifier 'down to' additiveExpression block
+    |   'while' Identifier (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'while loop' should contain 'up to' or 'down to' keyword");}
 	;
 whileStatementNoShortIf
 	:	'while' '(' expression ')' statementNoShortIf
@@ -871,6 +872,7 @@ doStatement
 //	:	'do' statement 'while' '(' expression ')' ';'
     :   'do' block 'while' Identifier 'up to' additiveExpression
     |   'do' block 'while' Identifier 'down to' additiveExpression
+    |   'do' block 'while' Identifier (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression {notifyErrorListeners("wrong syntax for 'do while loop' should contain 'up to' or 'down to' keyword");}
 	;
 forStatement
 //	:	basicForStatement
@@ -883,8 +885,9 @@ forStatementNoShortIf
 	:   pseudoForStatement
 	;
 pseudoForStatement
-    :'for' forInit 'up to' additiveExpression block
-    |'for' forInit 'down to' additiveExpression block
+    :   'for' forInit 'up to' additiveExpression block
+    |   'for' forInit 'down to' additiveExpression block
+    |   'for' forInit (StringLiteral | Identifier) (StringLiteral | Identifier)* additiveExpression block {notifyErrorListeners("wrong syntax for 'for loop' should contain 'up to' or 'down to' keyword");}
     ;
 //basicForStatement
 //	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
