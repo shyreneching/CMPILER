@@ -442,7 +442,7 @@ methodDeclaration
     :   'func' result methodDeclarator block
     |   'func' methodDeclarator block {notifyErrorListeners("lacking return type");}
     |   result methodDeclarator block {notifyErrorListeners("lacking 'func'");}
-    |   'func' result methodDeclarator ';'
+//    |   'func' result methodDeclarator ';'
     |   'func' result methodDeclarator {notifyErrorListeners("lacking function body");}
 	;
 
