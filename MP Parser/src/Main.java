@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
         try {
-            CharStream input = CharStreams.fromFileName("input/test2.java");
+            CharStream input = CharStreams.fromFileName("input/test3.java");
             PseudoCodeLexer lexer = new PseudoCodeLexer(input);
             PseudoCodeParser parser = new PseudoCodeParser(new CommonTokenStream(lexer));
             parser.addParseListener(new PseudoCodeBaseListener());

@@ -1,7 +1,4 @@
-import org.antlr.v4.runtime.BaseErrorListener;
-import org.antlr.v4.runtime.Parser;
-import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.*;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +26,11 @@ public class ErrorListener extends BaseErrorListener {
         if (!sourceName.isEmpty()) {
             sourceName = String.format("%s; ", sourceName);
         }
+
+        CommonTokenStream tokens = (CommonTokenStream)recognizer.getInputStream();
+        String input = tokens.getTokenSource().getInputStream().toString();
+        String[] lines = input.split("\n");
+        String errorLine = lines[line - 1];
 
         String[] temp;
         String[] unnanType = {"boolean;", "byte;", "short;", "int;", "long;", "char;", "float;", "double;", "String;", "Object;"};
@@ -62,8 +64,9 @@ public class ErrorListener extends BaseErrorListener {
             } else if (temp[1].equals("}")){
                 msg = "missing closing bracket '}'";
                 line = line - 1;
-            } else if (msg.contains("missing {StringLiteral, Identifier}")){
-                msg = "missing argument before '"+temp[1] + "'";
+//            } else if (msg.contains("missing {StringLiteral, Identifier}")){
+//                msg = "missing argument before '"+temp[1] + "'";
+//                msg = "missing argument before '"+temp[1] + "'";
             } else {
 //                msg = "looking for '" + temp[1] +"' but found " + temp[3];
             }
@@ -88,7 +91,15 @@ public class ErrorListener extends BaseErrorListener {
                 temp = msg.split("'");
                 msg = "no identifier found for '" + temp[1].replace(";", "") + "' data type";
 
-            }else{
+            }else if (msg.contains("print") && (msg.contains("-") || msg.contains("*") || msg.contains("/") || msg.contains("%"))){
+                temp = msg.split("'");
+                msg = "unecessary '" + temp[1].charAt(temp[1].length() - 1)+ "' in print statement";
+
+            }else if (errorLine.contains("if") ){
+                temp = msg.split("'");
+                msg = "did not find expected comparison operator in If statement";
+
+            } else{
                 msg = "no solution for : '" + temp[1];
             }
 
@@ -109,13 +120,15 @@ public class ErrorListener extends BaseErrorListener {
 //
 //        CommonTokenStream tokens = (CommonTokenStream)recognizer.getInputStream();
 //        String input = tokens.getTokenSource().getInputStream().toString();
-//        String[] lines = input.split("\n"); String errorLine = lines[line - 1];
+//        String[] lines = input.split("\n");
+//        String errorLine = lines[line - 1];
 //        System.err.println(errorLine);
 //        for (int i=0; i<charPositionInLine; i++) System.err.print(" ");
-//        int start = offendingSymbol.getNumberOfOnChannelTokens();
+//        int start = charPositionInLine;
 //        int stop = charPositionInLine + 6;
 //        if ( start>=0 && stop>=0 ) {
-//            for (int i=start; i<=stop; i++) System.err.print("^");
+//            for (int i=start; i<=stop; i++)
+//                System.err.print("^");
 //
 //        }
 //        System.err.println();
