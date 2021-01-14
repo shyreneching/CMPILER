@@ -1098,19 +1098,22 @@ arrayAccess_lfno_primary
 //		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
 methodInvocation
-	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("redundant parentheses");}
+	:	methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
+	|   methodName '(' argumentList? {notifyErrorListeners("no closing parenthesis");}
 	|   methodName '(' argumentList? ')'
-	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	primary '.' typeArguments? Identifier '(' argumentList? ')'
-	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
-	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	primary '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
 methodInvocation_lf_primary
 	:	'.' typeArguments? Identifier '(' argumentList? ')'
 	;
 methodInvocation_lfno_primary
 	:	methodName '(' argumentList? ')'
+	|   methodName '(' argumentList? ')''(' argumentList? ')'{notifyErrorListeners("redundant parentheses");}
+    |   methodName '(' argumentList? {notifyErrorListeners("no closing parenthesis");}
 //	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
 //	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1118,6 +1121,10 @@ methodInvocation_lfno_primary
 	;
 argumentList
 	:	expression (',' expression)*
+	|   (expression (',' expression)*)? expression argumentList {notifyErrorListeners("missing comma in parameters");}
+	|   ','* ',' argumentList {notifyErrorListeners("missing parameter");}
+	|   argumentList ',' ','* {notifyErrorListeners("missing parameter");}
+	|   argumentList ',' ',' ','* argumentList {notifyErrorListeners("missing parameter");}
 	;
 methodReference
 	:	expressionName '::' typeArguments? Identifier
