@@ -16197,7 +16197,7 @@ public class PseudoCodeParser extends Parser {
 				match(RPAREN);
 				setState(2500);
 				assignmentExpression();
-				notifyErrorListeners("redundant paranthesis");
+				notifyErrorListeners("redundant parenthesis");
 				}
 				break;
 			case 3:
@@ -16207,7 +16207,7 @@ public class PseudoCodeParser extends Parser {
 				match(RPAREN);
 				setState(2504);
 				assignmentExpression();
-				notifyErrorListeners("uneven paranthesis, lacking '('");
+				notifyErrorListeners("uneven parenthesis, lacking '('");
 				}
 				break;
 			case 4:
@@ -16217,7 +16217,7 @@ public class PseudoCodeParser extends Parser {
 				match(LPAREN);
 				setState(2508);
 				assignmentExpression();
-				notifyErrorListeners("uneven paranthesis, lacking ')'");
+				notifyErrorListeners("uneven parenthesis, lacking ')'");
 				}
 				break;
 			}
@@ -16274,7 +16274,7 @@ public class PseudoCodeParser extends Parser {
 				match(LPAREN);
 				setState(2515);
 				match(RPAREN);
-				notifyErrorListeners("redundant paranthesis");
+				notifyErrorListeners("redundant parenthesis");
 				}
 				break;
 			case 3:
@@ -16282,7 +16282,7 @@ public class PseudoCodeParser extends Parser {
 				{
 				setState(2517);
 				match(RPAREN);
-				notifyErrorListeners("uneven paranthesis, lacking '('");
+				notifyErrorListeners("uneven parenthesis, lacking '('");
 				}
 				break;
 			case 4:
@@ -16290,7 +16290,7 @@ public class PseudoCodeParser extends Parser {
 				{
 				setState(2519);
 				match(LPAREN);
-				notifyErrorListeners("uneven paranthesis, lacking ')'");
+				notifyErrorListeners("uneven parenthesis, lacking ')'");
 				}
 				break;
 			}

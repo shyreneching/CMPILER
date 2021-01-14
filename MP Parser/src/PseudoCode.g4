@@ -1159,16 +1159,16 @@ expression
 //    |   assignmentExpression '(' ')' {notifyErrorListeners("redundant paranthesis");}
 //    |   assignmentExpression ')'  {notifyErrorListeners("uneven paranthesis, missing '('");}
 //    |   assignmentExpression '('  {notifyErrorListeners("uneven paranthesis, missing ')'");}
-    |   '(' ')' assignmentExpression  {notifyErrorListeners("redundant paranthesis");}
-    |   ')' assignmentExpression  {notifyErrorListeners("uneven paranthesis, lacking '('");}
-    |   '('  assignmentExpression   {notifyErrorListeners("uneven paranthesis, lacking ')'");}
+    |   '(' ')' assignmentExpression  {notifyErrorListeners("redundant parenthesis");}
+    |   ')' assignmentExpression  {notifyErrorListeners("uneven parenthesis, lacking '('");}
+    |   '('  assignmentExpression   {notifyErrorListeners("uneven parenthesis, lacking ')'");}
 	;
 
 errorParenthesis
     :
-    |    '(' ')' {notifyErrorListeners("redundant paranthesis");}
-    |    ')'  {notifyErrorListeners("uneven paranthesis, lacking '('");}
-    |    '('  {notifyErrorListeners("uneven paranthesis, lacking ')'");}
+    |    '(' ')' {notifyErrorListeners("redundant parenthesis");}
+    |    ')'  {notifyErrorListeners("uneven parenthesis, lacking '('");}
+    |    '('  {notifyErrorListeners("uneven parenthesis, lacking ')'");}
 	;
 
 lambdaExpression

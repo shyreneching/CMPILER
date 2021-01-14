@@ -77,7 +77,8 @@ type
 
 primitiveType
 	:	annotation* numericType
-	|	annotation* 'boolean'
+//	|	annotation* 'boolean'
+    |	annotation* 'bool'
 	;
 
 numericType
@@ -149,7 +150,8 @@ arrayType
 	;
 
 dims
-	:	annotation* '[' ']' (annotation* '[' ']')*
+//	:	annotation* '[' ']' (annotation* '[' ']')*
+    :   '[' ']' ('[' ']')*
 	;
 
 typeParameter
@@ -229,8 +231,13 @@ ambiguousName
  */
 
 compilationUnit
-	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
+//	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
+    :   classBodyDeclaration* mainDeclaration classBodyDeclaration* EOF
 	;
+
+mainDeclaration
+    :   'main' '(' ')' block
+    ;
 
 packageDeclaration
 	:	packageModifier* 'package' Identifier ('.' Identifier)* ';'
@@ -319,17 +326,17 @@ classBody
 
 classBodyDeclaration
 	:	classMemberDeclaration
-	|	instanceInitializer
-	|	staticInitializer
-	|	constructorDeclaration
+//	|	instanceInitializer
+//	|	staticInitializer
+//	|	constructorDeclaration
 	;
 
 classMemberDeclaration
-	:	fieldDeclaration
-	|	methodDeclaration
-	|	classDeclaration
-	|	interfaceDeclaration
-	|	';'
+//	:	fieldDeclaration
+	:	methodDeclaration
+//	|	classDeclaration
+//	|	interfaceDeclaration
+//	|	';'
 	;
 
 fieldDeclaration
@@ -358,7 +365,8 @@ variableDeclarator
 
 
 variableDeclaratorId
-	:	Identifier dims?
+//	:	Identifier dims?
+    :   Identifier
 	;
 
 variableInitializer
@@ -368,12 +376,14 @@ variableInitializer
 
 unannType
 	:	unannPrimitiveType
-	|	unannReferenceType
+//	|	unannReferenceType
 	;
 
 unannPrimitiveType
 	:	numericType
-	|	'boolean'
+//	|   'boolean'
+	|	'bool'
+	|   'String'
 	;
 
 unannReferenceType
@@ -427,7 +437,8 @@ unannArrayType
 	;
 
 methodDeclaration
-	:	methodModifier* methodHeader methodBody
+//	:	methodModifier* methodHeader methodBody
+    :   'func' result methodDeclarator block
 	;
 
 methodModifier
@@ -703,7 +714,8 @@ singleElementAnnotation
  */
 
 arrayInitializer
-	:	'{' variableInitializerList? ','? '}'
+//	:	'{' variableInitializerList? ','? '}'
+    :   'create' unannType '[' additiveExpression ']'
 	;
 
 variableInitializerList
@@ -720,6 +732,7 @@ block
 
 blockStatements
 	:	blockStatement blockStatement*
+//	|	blockStatement* returnStatement
 	;
 
 blockStatement
@@ -733,14 +746,15 @@ localVariableDeclarationStatement
 	;
 
 localVariableDeclaration
-	:	variableModifier* unannType variableDeclaratorList
+//	:	variableModifier* unannType variableDeclaratorList
+    :   ('constant')? unannType dims? variableDeclaratorList
 	;
 
 statement
 	:	statementWithoutTrailingSubstatement
-	|	labeledStatement
+//	|	labeledStatement
 	|	ifThenStatement
-	|	ifThenElseStatement
+//	|	ifThenElseStatement
 	|	whileStatement
 	|	forStatement
 	;
@@ -754,18 +768,19 @@ statementNoShortIf
 	;
 
 statementWithoutTrailingSubstatement
+//    :
 	:	block
 	|	emptyStatement
 	|	expressionStatement
-	|	assertStatement
+//	|	assertStatement
 	|	switchStatement
 	|	doStatement
 	|	breakStatement
 	|	continueStatement
 	|	returnStatement
-	|	synchronizedStatement
-	|	throwStatement
-	|	tryStatement
+//	|	synchronizedStatement
+//	|	throwStatement
+//	|	tryStatement
 //Added item
 	|   localVariableDeclaration
 	;
@@ -792,197 +807,174 @@ statementExpression
 	|	preDecrementExpression
 	|	postIncrementExpression
 	|	postDecrementExpression
+	|   printInvocation
+	|   scanInvocation
 	|	methodInvocation
-	|	classInstanceCreationExpression
+//	|	classInstanceCreationExpression
 	;
 
+printInvocation
+    :   'print' '(' ((StringLiteral | Identifier) ('+' (StringLiteral | Identifier))*)? ')'
+    |   'print' '(' ((StringLiteral | Identifier) (StringLiteral | Identifier) (StringLiteral | Identifier)*) ')' {notifyErrorListeners("lacking quotation mark or '+' symbol in print statement");}
+    ;
+
+scanInvocation
+    :   'scan' '(' (StringLiteral | Identifier) ('+' (StringLiteral | Identifier))* ',' Identifier ')'
+    ;
 ifThenStatement
-	:	'if' '(' expression ')' statement
+//	:	'if' '(' expression ')' statement
+    : 'if' '(' onlyConditionalExpression ')' 'then' block ('else' 'if' '(' onlyConditionalExpression ')' 'then' block)* ('else' 'then' block)?
 	;
-
 ifThenElseStatement
 	:	'if' '(' expression ')' statementNoShortIf 'else' statement
 	;
-
 ifThenElseStatementNoShortIf
 	:	'if' '(' expression ')' statementNoShortIf 'else' statementNoShortIf
 	;
-
 assertStatement
 	:	'assert' expression ';'
 	|	'assert' expression ':' expression ';'
 	;
-
 switchStatement
-	:	'switch' '(' expression ')' switchBlock
+//	:	'switch' '(' expression ')' switchBlock
+    :   'switch' '(' Identifier ')' switchBlock
 	;
-
 switchBlock
 	:	'{' switchBlockStatementGroup* switchLabel* '}'
 	;
-
 switchBlockStatementGroup
 	:	switchLabels blockStatements
 	;
-
 switchLabels
 	:	switchLabel switchLabel*
 	;
-
 switchLabel
 	:	'case' constantExpression ':'
-	|	'case' enumConstantName ':'
+//	|	'case' enumConstantName ':'
 	|	'default' ':'
 	;
-
 enumConstantName
 	:	Identifier
 	;
-
 whileStatement
-	:	'while' '(' expression ')' statement
+//	:	'while' '(' expression ')' statement
+    :	'while' Identifier 'up to' additiveExpression block
+    |   'while' Identifier 'down to' additiveExpression block
 	;
-
 whileStatementNoShortIf
 	:	'while' '(' expression ')' statementNoShortIf
 	;
-
 doStatement
-	:	'do' statement 'while' '(' expression ')' ';'
+//	:	'do' statement 'while' '(' expression ')' ';'
+    :   'do' block 'while' Identifier 'up to' additiveExpression
+    |   'do' block 'while' Identifier 'down to' additiveExpression
 	;
-
 forStatement
-	:	basicForStatement
-	|	enhancedForStatement
-	|   pseudoForStatement
+//	:	basicForStatement
+//	|	enhancedForStatement
+	:   pseudoForStatement
 ;
-
-
 forStatementNoShortIf
-	:	basicForStatementNoShortIf
-	|	enhancedForStatementNoShortIf
-	|   pseudoForStatement
+//	:	basicForStatementNoShortIf
+//	|	enhancedForStatementNoShortIf
+	:   pseudoForStatement
 	;
-
 pseudoForStatement
-    :'for' forInit 'up to' relationalExpression '{'statement '}'
-    |'for' forInit 'down to' relationalExpression '{'statement '}'
+    :'for' forInit 'up to' additiveExpression block
+    |'for' forInit 'down to' additiveExpression block
     ;
-
-basicForStatement
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
-	;
-
-
-basicForStatementNoShortIf
-	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
-	;
-
+//basicForStatement
+//	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statement '}'
+//	;
+//basicForStatementNoShortIf
+//	:	'for' '(' forInit? ';' expression? ';' forUpdate? ')' '{'statementNoShortIf'}'
+//	;
 forInit
-	:	statementExpressionList
+    :
+//	:	statementExpressionList
 	|	forinitializer
 	;
-
 forinitializer
     :	unannType? variableDeclaratorId customAssignError
     |	Identifier
     ;
-
 customAssignError
     :	'=' variableInitializer
     |   {notifyErrorListeners("did not find assignment operator");}
     ;
-
-forUpdate
-	:	statementExpressionList
-	;
-
-statementExpressionList
-	:	statementExpression (',' statementExpression)*
-	;
-
-enhancedForStatement
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statement
-	;
-
-enhancedForStatementNoShortIf
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
-	;
-
+//forUpdate
+//	:	statementExpressionList
+//	;
+//statementExpressionList
+//	:	statementExpression (',' statementExpression)*
+//	;
+//
+//enhancedForStatement
+//	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statement
+//	;
+//
+//enhancedForStatementNoShortIf
+//	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
+//	;
 breakStatement
-	:	'break' Identifier? ';'
+//	:	'break' Identifier? ';'
+    :   'break' ';'
 	;
-
 continueStatement
-	:	'continue' Identifier? ';'
+//	:	'continue' Identifier? ';'
+	:	'continue' ';'
 	;
-
 returnStatement
 	:	'return' expression? ';'
 	;
-
 throwStatement
 	:	'throw' expression ';'
 	;
-
 synchronizedStatement
 	:	'synchronized' '(' expression ')' block
 	;
-
 tryStatement
 	:	'try' block catches
 	|	'try' block catches? finally_
 	|	tryWithResourcesStatement
 	;
-
 catches
 	:	catchClause catchClause*
 	;
-
 catchClause
 	:	'catch' '(' catchFormalParameter ')' block
 	;
-
 catchFormalParameter
 	:	variableModifier* catchType variableDeclaratorId
 	;
-
 catchType
 	:	unannClassType ('|' classType)*
 	;
-
 finally_
 	:	'finally' block
 	;
-
 tryWithResourcesStatement
 	:	'try' resourceSpecification block catches? finally_?
 	;
-
 resourceSpecification
 	:	'(' resourceList ';'? ')'
 	;
-
 resourceList
 	:	resource (';' resource)*
 	;
-
 resource
 	:	variableModifier* unannType variableDeclaratorId '=' expression
 	;
-
 /*
  * Productions from §15 (Expressions)
  */
-
 primary
 	:	(	primaryNoNewArray_lfno_primary
-		|	arrayCreationExpression
+//		|	arrayCreationExpression
 		)
-		(	primaryNoNewArray_lf_primary
-		)*
+//		(	primaryNoNewArray_lf_primary
+//		)*
 	;
-
 primaryNoNewArray
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -996,11 +988,9 @@ primaryNoNewArray
 	|	methodInvocation
 	|	methodReference
 	;
-
 primaryNoNewArray_lf_arrayAccess
 	:
 	;
-
 primaryNoNewArray_lfno_arrayAccess
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -1013,7 +1003,6 @@ primaryNoNewArray_lfno_arrayAccess
 	|	methodInvocation
 	|	methodReference
 	;
-
 primaryNoNewArray_lf_primary
 	:	classInstanceCreationExpression_lf_primary
 	|	fieldAccess_lf_primary
@@ -1021,37 +1010,32 @@ primaryNoNewArray_lf_primary
 	|	methodInvocation_lf_primary
 	|	methodReference_lf_primary
 	;
-
 primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary
 	:
 	;
-
 primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary
 	:	classInstanceCreationExpression_lf_primary
 	|	fieldAccess_lf_primary
 	|	methodInvocation_lf_primary
 	|	methodReference_lf_primary
 	;
-
 primaryNoNewArray_lfno_primary
 	:	literal
-	|	typeName ('[' ']')* '.' 'class'
-	|	unannPrimitiveType ('[' ']')* '.' 'class'
-	|	'void' '.' 'class'
-	|	'this'
-	|	typeName '.' 'this'
+//	|	typeName ('[' ']')* '.' 'class'
+//	|	unannPrimitiveType ('[' ']')* '.' 'class'
+//	|	'void' '.' 'class'
+//	|	'this'
+//	|	typeName '.' 'this'
 	|	'(' expression ')'
-	|	classInstanceCreationExpression_lfno_primary
-	|	fieldAccess_lfno_primary
+//	|	classInstanceCreationExpression_lfno_primary
+//	|	fieldAccess_lfno_primary
 	|	arrayAccess_lfno_primary
 	|	methodInvocation_lfno_primary
-	|	methodReference_lfno_primary
+//	|	methodReference_lfno_primary
 	;
-
 primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary
 	:
 	;
-
 primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	:	literal
 	|	typeName ('[' ']')* '.' 'class'
@@ -1065,42 +1049,34 @@ primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	|	methodInvocation_lfno_primary
 	|	methodReference_lfno_primary
 	;
-
 classInstanceCreationExpression
 	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	primary '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 classInstanceCreationExpression_lf_primary
 	:	'.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 classInstanceCreationExpression_lfno_primary
 	:	'new' typeArguments? annotation* Identifier ('.' annotation* Identifier)* typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
-
 typeArgumentsOrDiamond
 	:	typeArguments
 	|	'<' '>'
 	;
-
 fieldAccess
 	:	primary '.' Identifier
 	|	'super' '.' Identifier
 	|	typeName '.' 'super' '.' Identifier
 	;
-
 fieldAccess_lf_primary
 	:	'.' Identifier
 	;
-
 fieldAccess_lfno_primary
 	:	'super' '.' Identifier
 	|	typeName '.' 'super' '.' Identifier
 	;
-
 arrayAccess
 	:	(	expressionName '[' expression ']'
 		|	primaryNoNewArray_lfno_arrayAccess '[' expression ']'
@@ -1108,19 +1084,16 @@ arrayAccess
 		(	primaryNoNewArray_lf_arrayAccess '[' expression ']'
 		)*
 	;
-
 arrayAccess_lf_primary
 	:	primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary '[' expression ']'
 		(primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary '[' expression ']')*
 	;
-
 arrayAccess_lfno_primary
 	:	(	expressionName '[' expression ']'
-		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
+//		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
 		)
-		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
+//		(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']')*
 	;
-
 methodInvocation
 	:	methodName '(' argumentList? ')''(' expression? ')'{notifyErrorListeners("redundant parentheses");}
 	|   methodName '(' argumentList? ')'
@@ -1130,23 +1103,19 @@ methodInvocation
 	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 methodInvocation_lf_primary
 	:	'.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 methodInvocation_lfno_primary
 	:	methodName '(' argumentList? ')'
-	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
-	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
-	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	expressionName '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	'super' '.' typeArguments? Identifier '(' argumentList? ')'
+//	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
-
 argumentList
 	:	expression (',' expression)*
 	;
-
 methodReference
 	:	expressionName '::' typeArguments? Identifier
 	|	referenceType '::' typeArguments? Identifier
@@ -1156,11 +1125,9 @@ methodReference
 	|	classType '::' typeArguments? 'new'
 	|	arrayType '::' 'new'
 	;
-
 methodReference_lf_primary
 	:	'::' typeArguments? Identifier
 	;
-
 methodReference_lfno_primary
 	:	expressionName '::' typeArguments? Identifier
 	|	referenceType '::' typeArguments? Identifier
@@ -1169,65 +1136,68 @@ methodReference_lfno_primary
 	|	classType '::' typeArguments? 'new'
 	|	arrayType '::' 'new'
 	;
-
 arrayCreationExpression
 	:	'new' primitiveType dimExprs dims?
 	|	'new' classOrInterfaceType dimExprs dims?
 	|	'new' primitiveType dims arrayInitializer
 	|	'new' classOrInterfaceType dims arrayInitializer
 	;
-
 dimExprs
 	:	dimExpr dimExpr*
 	;
-
 dimExpr
 	:	annotation* '[' expression ']'
 	;
-
+// See Expressions
 constantExpression
 	:	expression
 	;
-
 expression
-	:	lambdaExpression
-	|	assignmentExpression
+//	:	lambdaExpression
+//	|	assignmentExpression
+    :   assignmentExpression errorParenthesis
+//    |   assignmentExpression '(' ')' {notifyErrorListeners("redundant paranthesis");}
+//    |   assignmentExpression ')'  {notifyErrorListeners("uneven paranthesis, missing '('");}
+//    |   assignmentExpression '('  {notifyErrorListeners("uneven paranthesis, missing ')'");}
+    |   '(' ')' assignmentExpression  {notifyErrorListeners("redundant parenthesis");}
+    |   ')' assignmentExpression  {notifyErrorListeners("uneven parenthesis, lacking '('");}
+    |   '('  assignmentExpression   {notifyErrorListeners("uneven parenthesis, lacking ')'");}
+	;
+
+errorParenthesis
+    :
+    |    '(' ')' {notifyErrorListeners("redundant parenthesis");}
+    |    ')'  {notifyErrorListeners("uneven parenthesis, lacking '('");}
+    |    '('  {notifyErrorListeners("uneven parenthesis, lacking ')'");}
 	;
 
 lambdaExpression
 	:	lambdaParameters '->' lambdaBody
 	;
-
 lambdaParameters
 	:	Identifier
 	|	'(' formalParameterList? ')'
 	|	'(' inferredFormalParameterList ')'
 	;
-
 inferredFormalParameterList
 	:	Identifier (',' Identifier)*
 	;
-
 lambdaBody
 	:	expression
 	|	block
 	;
-
 assignmentExpression
 	:	conditionalExpression
-	|	assignment
+//	|	assignment
 	;
-
 assignment
 	:	leftHandSide assignmentOperator expression
 	;
-
 leftHandSide
 	:	expressionName
 	|	fieldAccess
 	|	arrayAccess
 	;
-
 assignmentOperator
 	:	'='
 	|	'*='
@@ -1242,40 +1212,55 @@ assignmentOperator
 	|	'^='
 	|	'|='
 	;
-
 conditionalExpression
 	:	conditionalOrExpression
-	|	conditionalOrExpression '?' expression ':' conditionalExpression
+//	|	conditionalOrExpression '?' expression ':' conditionalExpression
 	;
-
+onlyConditionalExpression
+    : Identifier | BooleanLiteral | onlyConditionalOrExpression
+    ;
 conditionalOrExpression
 	:	conditionalAndExpression
 	|	conditionalOrExpression '||' conditionalAndExpression
 	;
-
+onlyConditionalOrExpression
+	:	onlyConditionalAndExpression
+	|	onlyConditionalOrExpression '||' onlyConditionalAndExpression
+	;
 conditionalAndExpression
 	:	inclusiveOrExpression
 	|	conditionalAndExpression '&&' inclusiveOrExpression
 	;
-
+onlyConditionalAndExpression
+	:	onlyEqualityExpression
+	|	onlyConditionalAndExpression '&&' onlyEqualityExpression
+	;
 inclusiveOrExpression
 	:	exclusiveOrExpression
-	|	inclusiveOrExpression '|' exclusiveOrExpression
+//	|	inclusiveOrExpression (|' exclusiveOrExpression
 	;
 
 exclusiveOrExpression
 	:	andExpression
-	|	exclusiveOrExpression '^' andExpression
+//	|	exclusiveOrExpression '^' andExpression
 	;
 
 andExpression
 	:	equalityExpression
-	|	andExpression '&' equalityExpression
+//	|	andExpression '&' equalityExpression
 	;
 
 equalityExpression
 	:	relationalExpression
-	|   postfixExpressionInc
+//	|   postfixExpressionInc
+	|   equalityExpression '=' relationalExpression {notifyErrorListeners("assignment operator found, expecting comparison operator");}
+	|	equalityExpression '==' relationalExpression
+	|	equalityExpression '!=' relationalExpression
+	;
+
+onlyEqualityExpression
+	:	onlyRelationalExpression
+//	|   postfixExpressionInc
 	|   equalityExpression '=' relationalExpression {notifyErrorListeners("assignment operator found, expecting comparison operator");}
 	|	equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
@@ -1287,14 +1272,21 @@ relationalExpression
 	|	relationalExpression '>' shiftExpression
 	|	relationalExpression '<=' shiftExpression
 	|	relationalExpression '>=' shiftExpression
-	|	relationalExpression 'instanceof' referenceType
+//	|	relationalExpression 'instanceof' referenceType
+	;
+
+onlyRelationalExpression
+	:	relationalExpression '<' shiftExpression
+    |	relationalExpression '>' shiftExpression
+    |	relationalExpression '<=' shiftExpression
+    |	relationalExpression '>=' shiftExpression
 	;
 
 shiftExpression
 	:	additiveExpression
-	|	shiftExpression '<' '<' additiveExpression
-	|	shiftExpression '>' '>' additiveExpression
-	|	shiftExpression '>' '>' '>' additiveExpression
+//	|	shiftExpression '<' '<' additiveExpression
+//	|	shiftExpression '>' '>' additiveExpression
+//	|	shiftExpression '>' '>' '>' additiveExpression
 	;
 
 additiveExpression
@@ -1306,8 +1298,10 @@ additiveExpression
 
 
 additiveExpressionfactored
-    : INC multiplicativeExpression  {notifyErrorListeners("redundant '+' operator symbol found");}
-    | DEC multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
+    : arithmetic arithmetic (arithmetic | INC | DEC)* multiplicativeExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | INC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+    | DEC (arithmetic | INC | DEC)* multiplicativeExpression {notifyErrorListeners("redundant arithmetic operator symbol found");}
+//    | '--' '-'* multiplicativeExpression  {notifyErrorListeners("redundant '-' operator symbol found");}
     | addminus {notifyErrorListeners("lacking argument after operator/excess operator");}
     | addminus multiplicativeExpression
     ;
@@ -1324,11 +1318,20 @@ multiplicativeExpression
 	;
 
 multiplicativeExpressionfactored
-    : '**' unaryExpression  {notifyErrorListeners("redundant '*' operator symbol found");}
-    | '%%' unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
-    | mult {notifyErrorListeners("lacking argument after operator/excess operator");}
-    | mult unaryExpression
+    :    arithmetic arithmetic (arithmetic | INC | DEC)* unaryExpression  {notifyErrorListeners("redundant arithmetic operator symbol found");}
+//    |   '%%' '%'* unaryExpression  {notifyErrorListeners("redundant '%' operator symbol found");}
+    |   mult {notifyErrorListeners("lacking argument after operator/excess operator");}
+    |   mult unaryExpression
     ;
+
+arithmetic
+    :   '+'
+    |   '-'
+    |   '*'
+    |   '/'
+    |   '%'
+    ;
+
 
 mult
     : '*'
@@ -1337,11 +1340,12 @@ mult
     ;
 
 unaryExpression
-	:	preIncrementExpression
-	|	preDecrementExpression
-	|	'+' unaryExpression
-	|	'-' unaryExpression
-	|	unaryExpressionNotPlusMinus
+//	:	preIncrementExpression
+//	|	preDecrementExpression
+//	|	'+' unaryExpression
+//	|	'-' unaryExpression
+//	|	unaryExpressionNotPlusMinus
+    :   unaryExpressionNotPlusMinus
 	;
 
 preIncrementExpression
@@ -1354,9 +1358,9 @@ preDecrementExpression
 
 unaryExpressionNotPlusMinus
 	:	postfixExpression
-	|	'~' unaryExpression
+//	|	'~' unaryExpression
 	|	'!' unaryExpression
-	|	castExpression
+//	|	castExpression
 	;
 
 //added item
@@ -1402,11 +1406,21 @@ castExpression
 
 // LEXER
 
+PRINT : 'print';
+SCAN : 'scan';
+FUNC : 'func';
+MAIN : 'main';
+STRING : 'String';
+CONSTANT : 'constant';
+CREATE : 'create';
+THEN : 'then';
+
 // §3.9 Keywords
 
 ABSTRACT : 'abstract';
 ASSERT : 'assert';
-BOOLEAN : 'boolean';
+BOOL : 'bool';
+//BOOLEAN : 'boolean';
 BREAK : 'break';
 BYTE : 'byte';
 CASE : 'case';
