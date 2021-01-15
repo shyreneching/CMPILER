@@ -11,6 +11,4 @@ Open 'MP Parser' file using your IDE. Recoommended IDE to use is IntelliJ.
 Install the libraries found in the 'lib' directory and run the 'Main.java' file found in the 'src' directory.
 
 ## Contributors
-Erika Chan
-Myles Chan
-Shyrene Ching
+Erika Chan, Myles Russel Chan, Shyrene Julianne Ching
