@@ -44,8 +44,8 @@ import java.util.regex.Pattern;
 public class ParserUI extends Application {
 
     private static final String[] KEYWORDS = new String[] {
-            "abstract", "assert", "boolean", "break", "byte",
-            "case", "catch", "char", "class", "const",
+            "abstract", "assert", "bool", "break", "byte",
+            "case", "catch", "char", "class", "constant",
             "continue", "default", "do", "double", "else",
             "enum", "extends", "final", "finally", "float",
             "for", "goto", "if", "implements", "import",
@@ -53,7 +53,10 @@ public class ParserUI extends Application {
             "new", "package", "private", "protected", "public",
             "return", "short", "static", "strictfp", "super",
             "switch", "synchronized", "this", "throw", "throws",
-            "transient", "try", "void", "volatile", "while"
+            "transient", "try", "void", "volatile", "while",
+
+            "up to", "down to", "func", "print", "scan", "String",
+            "create", "then"
     };
 
     private static final String KEYWORD_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";

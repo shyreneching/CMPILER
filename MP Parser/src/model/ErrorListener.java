@@ -63,7 +63,7 @@ public class ErrorListener extends BaseErrorListener {
 //                msg = "Excess '"+ temp[3] + "'";
             } else if (msg.contains("}")){
                 msg = "missing closing bracket '}'";
-//                line = line - 1;
+                line = line - 1;
 //            } else if (msg.contains("missing {StringLiteral, Identifier}")){
 //                msg = "missing argument before '"+temp[1] + "'";
 //                msg = "missing argument before '"+temp[1] + "'";
